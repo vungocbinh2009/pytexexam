@@ -9,6 +9,7 @@ class Question:
         self.__answer_2 = Answer()
         self.__answer_3 = Answer()
         self.__answer_4 = Answer()
+        self.__answer_column = 1
 
     def answer_1(self, answer: str, true_answer=False):
         self.__answer_1.answer = answer
@@ -43,3 +44,10 @@ class Question:
         self.__answer_2 = answer_list[1]
         self.__answer_3 = answer_list[2]
         self.__answer_4 = answer_list[3]
+
+    def set_answer_column(self, answer_column: int):
+        if answer_column in [1, 2, 4]:
+            self.__answer_column = answer_column
+
+    def get_answer_column(self):
+        return self.__answer_column

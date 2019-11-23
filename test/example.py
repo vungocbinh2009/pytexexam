@@ -26,5 +26,6 @@ if __name__ == '__main__':
     exam = Exam([question, question2, question3])
     exam.shuffle_question()
     latex_exam = LatexExam("Simple exam", exam)
-    latex_exam.export_tex_file("test1.tex")
-    latex_exam.export_pdf_file("test1.pdf")
+    latex_exam.add_ams_math_preamble()
+    latex_exam.export_tex_exam("test1.tex")
+    latex_exam.export_pdf_exam("test1.pdf")
