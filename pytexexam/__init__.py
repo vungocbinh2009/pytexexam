@@ -1,1 +1,1 @@
-from pytexexam import latexexam, exam, question, answer
+from pytexexam import latexexam, exam, question

@@ -39,9 +39,9 @@ class LatexExam:
         \\\\
         \\end{{tabular}}
         \\end{{question}}
-        """.format(question_content=question.question, answer_1=question.answer_1.answer,
-                   answer_2=question.answer_2.answer, answer_3=question.answer_3.answer,
-                   answer_4=question.answer_4.answer)
+        """.format(question_content=question.question, answer_1=question.get_answer(1),
+                   answer_2=question.get_answer(2), answer_3=question.get_answer(3),
+                   answer_4=question.get_answer(4))
 
     def export_tex_file(self, file_name: str):
         question_list_string = ""
@@ -52,12 +52,13 @@ class LatexExam:
         \\begin{{document}}
         \\textbf{{
         \\begin{{center}}
-        {{\\LARGE Tiêu đề bài kiểm tra}}
+        {{\\LARGE {exam_title} }}
         \\end{{center}}
         }}
         {question_list}
         \\end{{document}}
-        """.format(latex_preamble=self.latex_preamble, question_list=question_list_string)
+        """.format(latex_preamble=self.latex_preamble, question_list=question_list_string,
+                   exam_title=self.exam_title)
         file = open(file_name, "wt")
         file.write(latex_string)
 
