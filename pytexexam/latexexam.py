@@ -5,8 +5,13 @@ import os
 
 
 class LatexExam:
+    """
+    Lớp này biểu diễn 1 bài kiểm tra, cho phép người dùng in bài kiểm tra và đáp án ra file tex
+    hoặc pdf (với latex được cài sẵn)
+    """
     def __init__(self, exam_title: str, exam: Exam):
         self.exam_content: Exam = exam
+        """Nội dung của bài kiểm tra"""
         self.latex_preamble: str = """
         \\documentclass[12pt,a4paper,notitlepage]{article}
         \\usepackage[utf8]{vietnam}
@@ -15,7 +20,9 @@ class LatexExam:
         \\linespread{1.5}
         \\newtheorem{question}{Câu hỏi}
         """
+        """Preamble của file latex ứng với đề kiểm tra"""
         self.exam_title: str = exam_title
+        """Tên bài kiểm tra"""
         self.exam_header: str = """
         \\textbf{{
         \\begin{{center}}
@@ -23,11 +30,22 @@ class LatexExam:
         \\end{{center}}
         }}
         """.format(exam_title=self.exam_title)
+        """Phần trình bày header của bài kiểm tra"""
 
     def add_preamble(self, preamble: str):
+        """
+        Phương thức này cho phép thêm vào các dòng cần thiết trong phần preamble của file latex,
+        ví dụ như usepackage...
+        :param preamble: Phần cần thêm vào preamble.
+        :return:
+        """
         self.latex_preamble += ("\n" + preamble)
 
     def add_ams_math_preamble(self):
+        """
+        Thêm các gói lệnh toán vào latex preamble.
+        :return:
+        """
         self.add_preamble("""
         \\usepackage{amsmath}
         \\usepackage{amsfonts}
@@ -36,6 +54,11 @@ class LatexExam:
 
     @staticmethod
     def __print_question_2(question: Question) -> str:
+        """
+        In câu hỏi dưới dạng 2 cột.
+        :param question: Câu hỏi cần in.
+        :return: Chuổi kí tự biểu diễn nội dung câu hỏi dạng latex.
+        """
         return """
         \\begin{{question}}
         {question_content}
@@ -57,6 +80,11 @@ class LatexExam:
 
     @staticmethod
     def __print_question_4(question: Question) -> str:
+        """
+        In câu hỏi dưới dạng 4 cột.
+        :param question: Câu hỏi cần in.
+        :return: Chuổi kí tự biểu diễn nội dung câu hỏi dạng latex.
+        """
         return """
         \\begin{{question}}
         {question_content}
@@ -79,6 +107,11 @@ class LatexExam:
 
     @staticmethod
     def __print_question_1(question: Question) -> str:
+        """
+        In câu hỏi dưới dạng 1 cột.
+        :param question: Câu hỏi cần in.
+        :return: Chuổi kí tự biểu diễn nội dung câu hỏi dạng latex.
+        """
         return """
         \\begin{{question}}
         {question_content}
@@ -99,6 +132,10 @@ class LatexExam:
                    answer_4=question.get_answer(4))
 
     def export_tex_exam(self, file_name: str):
+        """
+        Phương thức này xuất đề thi dưới dạng file tex.
+        :param file_name: Tên file sẽ xuất ra.
+        """
         question_list_string = ""
         for question in self.exam_content.question_list:
             if question.get_answer_column() == 1:
@@ -119,13 +156,43 @@ class LatexExam:
         file.write(latex_string)
 
     def export_pdf_exam(self, file_name: str):
+        """
+        Phương thức này xuất đề thi dưới dạng file pdf.
+        :param file_name: Tên file sẽ xuất ra.
+        """
         self.export_tex_exam(file_name)
         os.system("pdflatex {file_name}".format(file_name=file_name))
 
     def export_tex_answer(self, file_name: str):
-        # TODO: Xuat dap an file tex.
-        pass
+        """
+        Phương thức này xuất đáp án dưới dạng file tex.
+        :param file_name: Tên file sẽ xuất ra.
+        """
+        exam_answer = ""
+        for index, question in enumerate(self.exam_content.question_list):
+            exam_answer += inspect.cleandoc("\\textbf{{{index}}}: {answer}".format(index=index + 1,
+                                            answer=question.get_true_answer()))
+            exam_answer += "\n\n\t\t"
+
+        latex_string = inspect.cleandoc("""
+        \\documentclass{{article}}
+        \\usepackage[utf8]{{inputenc}}
+        \\usepackage{{multicol}}
+        
+        \\begin{{document}}
+        {exam_header}
+        \\begin{{multicols}}{{5}}
+            {exam_answer}
+        \\end{{multicols}}
+        \\end{{document}}
+        """.format(exam_answer=exam_answer, exam_header=self.exam_header))
+        file = open(file_name, "wt")
+        file.write(latex_string)
 
     def export_pdf_answer(self, file_name: str):
-        # TODO: Xuat dap an file pdf.
-        pass
+        """
+        Phương thức này xuất đáp án dưới dạng file tex.
+        :param file_name: Tên file sẽ xuất ra.
+        """
+        self.export_tex_answer(file_name)
+        os.system("pdflatex {file_name}".format(file_name=file_name))
