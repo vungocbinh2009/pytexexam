@@ -63,3 +63,5 @@ If you find this project useful, you can buy me coffee through Flattr [![Flattr 
  git
  repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/@vungocbinh)
 
+## License
+Apache License, Version 2.0
