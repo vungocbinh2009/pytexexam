@@ -59,7 +59,7 @@ If you want to see all the functions included in this library, you can find the 
 ## Contribution.
 Contribution are welcome. Create a pull request.
 ## Buy me a coffee.
-Nếu bạn cảm thấy dự án này hữu ích, bạn có thể mua cà phê cho tôi thông qua Flattr [![Flattr this
+If you find this project useful, you can buy me coffee through Flattr [![Flattr this
  git
  repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/@vungocbinh)
 
