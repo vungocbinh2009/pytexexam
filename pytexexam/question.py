@@ -4,65 +4,69 @@ import random
 
 class Question:
     """
-    Lớp này biểu diễn 1 câu hỏi trong bài kiểm tra.
+    This class represents one question on the test.
     """
     def __init__(self, question: str):
         self.question: str = question
-        """Nội dung của câu hỏi."""
+        """Content of the question."""
         self.__answer_a = Answer()
-        """Nội dung của đáp án A"""
+        """Content of the answer A"""
         self.__answer_b = Answer()
-        """Nội dung của đáp án B"""
+        """Content of the answer B"""
         self.__answer_c = Answer()
-        """Nội dung của đáp án C"""
+        """Content of the answer C"""
         self.__answer_d = Answer()
-        """Nội dung của đáp án D"""
+        """Content of the answer D"""
         self.__answer_column = 1
-        """Số cột mà đáp án sẽ được trình bầy. Đáp án có thể được trình bày dưới dạng 1 cột, 
-        2 cột hoặc 4 cột"""
+        """Number of columns for which the answer will be presented. Answers can be presented as 
+        1 column, 2 columns or 4 columns"""
 
     def answer_a(self, answer: str, true_answer=False):
         """
-        Phương thức này dùng để nhập đáp án A cho câu hỏi.
-        :param answer: Nội dung đáp án A
-        :param true_answer: Nếu đây là đáp án đúng thì nhập True, nếu sai thì nhập False.
+        This method is used to enter answer A for the question.
+        :param answer: Content of the answer A
+        :param true_answer: If this is the correct answer then enter True, if false then enter
+        False.
         """
         self.__answer_a.answer = answer
         self.__answer_a.is_true_answer = true_answer
 
     def answer_b(self, answer: str, true_answer=False):
         """
-        Phương thức này dùng để nhập đáp án B cho câu hỏi.
-        :param answer: Nội dung đáp án B
-        :param true_answer: Nếu đây là đáp án đúng thì nhập True, nếu sai thì nhập False.
+        This method is used to enter answer B to the question.
+        :param answer: Content of the answer B
+        :param true_answer: If this is the correct answer then enter True, if false then enter
+        False.
         """
         self.__answer_b.answer = answer
         self.__answer_b.is_true_answer = true_answer
 
     def answer_c(self, answer: str, true_answer=False):
         """
-        Phương thức này dùng để nhập đáp án C cho câu hỏi.
-        :param answer: Nội dung đáp án C
-        :param true_answer: Nếu đây là đáp án đúng thì nhập True, nếu sai thì nhập False.
+        This method is used to enter answer C to the question.
+        :param answer: Content of the answer C
+        :param true_answer: If this is the correct answer then enter True, if false then enter
+        False.
         """
         self.__answer_c.answer = answer
         self.__answer_c.is_true_answer = true_answer
 
     def answer_d(self, answer: str, true_answer=False):
         """
-        Phương thức này dùng để nhập đáp án D cho câu hỏi.
-        :param answer: Nội dung đáp án D
-        :param true_answer: Nếu đây là đáp án đúng thì nhập True, nếu sai thì nhập False.
+        This method is used to enter answer D for the question.
+        :param answer: Content of the answer D
+        :param true_answer: If this is the correct answer then enter True, if false then enter
+        False.
         """
         self.__answer_d.answer = answer
         self.__answer_d.is_true_answer = true_answer
 
     def get_answer(self, answer_number: int) -> str:
         """
-        Phương thức này dùng để lấy đáp án của câu hỏi.
-        :param answer_number: Số tương ứng với đáp án của câu hỏi. Cụ thể: muốn lấy đáp án A thì
-        nhập 1, B thì nhập 2, C thì nhập 3, và D thì nhập 4.
-        :return: Câu trả lời tương ứng với đáp án đã chọn.
+        This method is used to get answers to questions.
+        :param answer_number: The number corresponding to the answer of the question. Specifically:
+         want to get answer A then enter 1, B enter 2, C enter 3, and D enter 4.
+        :return: The answer corresponds to the selected answer.
         """
         answer_list = {
             1: self.__answer_a.answer,
@@ -74,7 +78,7 @@ class Question:
 
     def shuffle_answer(self):
         """
-        Phương thức cho phép tráo đổi các phương án trong câu hỏi.
+        The method that allows the swap answers in question.
         """
         answer_list = [self.__answer_a, self.__answer_b, self.__answer_c, self.__answer_d]
         r = random.SystemRandom()
@@ -86,27 +90,26 @@ class Question:
 
     def set_answer_column(self, answer_column: int):
         """
-        Phương thức này cho phép nhập vào số cột mà đáp án sẽ được trình bày khi in câu hỏi. Các
-        giá trị có thể nhập vào là 1, 2, 4
-        :param answer_column: Số cột mà đáp án sẽ được trình bày khi in.
-        :return:
+        This method allows you to enter the number of columns where the answer will be displayed
+        when printing the question. The possible values ​​are 1, 2, 4
+        :param answer_column: The number of columns the answer will be displayed when printed.
         """
         if answer_column in [1, 2, 4]:
             self.__answer_column = answer_column
 
     def get_answer_column(self) -> int:
         """
-        Phương thức này trả về số cột mà đáp án sẽ được trình bày khi in câu hỏi. Hàm có thể trả
-        về các giá trị là 1, 2, 4.
-        :return: Số cột mà đáp án sẽ được trình bày khi in câu hỏi
+        This method returns the number of columns where the answer will be presented when the
+        question is printed. The function can return 1, 2, 4.
+        :return: The number of columns the answer will be displayed when the question is printed
         """
         return self.__answer_column
 
     def get_true_answer(self) -> str:
         """
-        Phương thức này trả về kí tự tương ứng với đáp án đúng của câu hỏi. Các kĩ tự có thể là
-        A, B, C, D.
-        :return: Kí tự tương ứng với đáp án đúng của câu hỏi
+        This method returns the character corresponding to the correct answer of the question.
+        The possible answer are A, B, C, D.
+        :return: The letter corresponding to the correct answer of the question
         """
         if self.__answer_a.is_true_answer:
             return "A"

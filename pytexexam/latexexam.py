@@ -6,23 +6,25 @@ import os
 
 class LatexExam:
     """
-    Lớp này biểu diễn 1 bài kiểm tra, cho phép người dùng in bài kiểm tra và đáp án ra file tex
-    hoặc pdf (với latex được cài sẵn)
+    This class represents a exam, allowing users to print the exam and answer to a tex file
+    or pdf (with latex pre-installed)
     """
     def __init__(self, exam_title: str, exam: Exam):
         self.exam_content: Exam = exam
-        """Nội dung của bài kiểm tra"""
+        """The content of the exam"""
+        self.question_theorem = "Question"
+        """The content of the beginning of each question will be printed"""
         self.latex_preamble: str = """
-        \\documentclass[12pt,a4paper,notitlepage]{article}
-        \\usepackage[utf8]{vietnam}
-        \\usepackage{graphicx}
-        \\usepackage{array}
-        \\linespread{1.5}
-        \\newtheorem{question}{Câu hỏi}
-        """
-        """Preamble của file latex ứng với đề kiểm tra"""
+        \\documentclass[12pt,a4paper,notitlepage]{{article}}
+        \\usepackage[utf8]{{vietnam}}
+        \\usepackage{{graphicx}}
+        \\usepackage{{array}}
+        \\linespread{{1.5}}
+        \\newtheorem{{question}}{{{question_theorem}}}
+        """.format(question_theorem=self.question_theorem)
+        """Preamble of the latex file corresponds to the exam"""
         self.exam_title: str = exam_title
-        """Tên bài kiểm tra"""
+        """Exam name"""
         self.exam_header: str = """
         \\textbf{{
         \\begin{{center}}
@@ -30,21 +32,19 @@ class LatexExam:
         \\end{{center}}
         }}
         """.format(exam_title=self.exam_title)
-        """Phần trình bày header của bài kiểm tra"""
+        """The presentation of the exam's header"""
 
     def add_preamble(self, preamble: str):
         """
-        Phương thức này cho phép thêm vào các dòng cần thiết trong phần preamble của file latex,
-        ví dụ như usepackage...
-        :param preamble: Phần cần thêm vào preamble.
-        :return:
+        This method allows adding the necessary lines in the preamble of the latex file,
+        eg usepackage ...
+        :param preamble: The part to add to preamble.
         """
         self.latex_preamble += ("\n" + preamble)
 
     def add_ams_math_preamble(self):
         """
-        Thêm các gói lệnh toán vào latex preamble.
-        :return:
+        Add math packages to latex preamble.
         """
         self.add_preamble("""
         \\usepackage{amsmath}
@@ -55,9 +55,9 @@ class LatexExam:
     @staticmethod
     def __print_question_2(question: Question) -> str:
         """
-        In câu hỏi dưới dạng 2 cột.
-        :param question: Câu hỏi cần in.
-        :return: Chuổi kí tự biểu diễn nội dung câu hỏi dạng latex.
+        Print the question as 2 columns.
+        :param question: Questions to print.
+        :return: Character string representing the question content in latex.
         """
         return """
         \\begin{{question}}
@@ -81,9 +81,9 @@ class LatexExam:
     @staticmethod
     def __print_question_4(question: Question) -> str:
         """
-        In câu hỏi dưới dạng 4 cột.
-        :param question: Câu hỏi cần in.
-        :return: Chuổi kí tự biểu diễn nội dung câu hỏi dạng latex.
+        Print the question as 4 columns.
+        :param question: Questions to print.
+        :return: Character string representing the question content in latex.
         """
         return """
         \\begin{{question}}
@@ -108,9 +108,9 @@ class LatexExam:
     @staticmethod
     def __print_question_1(question: Question) -> str:
         """
-        In câu hỏi dưới dạng 1 cột.
-        :param question: Câu hỏi cần in.
-        :return: Chuổi kí tự biểu diễn nội dung câu hỏi dạng latex.
+        Print the question as a column.
+        :param question: Questions to print.
+        :return: Character string representing the question content in latex.
         """
         return """
         \\begin{{question}}
@@ -133,8 +133,8 @@ class LatexExam:
 
     def export_tex_exam(self, file_name: str):
         """
-        Phương thức này xuất đề thi dưới dạng file tex.
-        :param file_name: Tên file sẽ xuất ra.
+        This method proposed exam as a tex file.
+        :param file_name: The file name will output.
         """
         question_list_string = ""
         for question in self.exam_content.question_list:
@@ -157,16 +157,16 @@ class LatexExam:
 
     def export_pdf_exam(self, file_name: str):
         """
-        Phương thức này xuất đề thi dưới dạng file pdf.
-        :param file_name: Tên file sẽ xuất ra.
+        This method export the exam as a pdf file.
+        :param file_name: The file name will output.
         """
         self.export_tex_exam(file_name)
         os.system("pdflatex {file_name}".format(file_name=file_name))
 
     def export_tex_answer(self, file_name: str):
         """
-        Phương thức này xuất đáp án dưới dạng file tex.
-        :param file_name: Tên file sẽ xuất ra.
+        This method export the answer as a tex file.
+        :param file_name: The file name will output.
         """
         exam_answer = ""
         for index, question in enumerate(self.exam_content.question_list):
@@ -191,8 +191,8 @@ class LatexExam:
 
     def export_pdf_answer(self, file_name: str):
         """
-        Phương thức này xuất đáp án dưới dạng file tex.
-        :param file_name: Tên file sẽ xuất ra.
+        This method export the answer as a tex file.
+        :param file_name: The file name will output.
         """
         self.export_tex_answer(file_name)
         os.system("pdflatex {file_name}".format(file_name=file_name))

@@ -5,15 +5,15 @@ import random
 
 class Exam:
     """
-    Lớp này biểu diễn 1 bài kiểm tra.
+    This class represents an exam.
     """
     def __init__(self, question_list: typing.List[Question]):
         self.question_list = question_list
-        """Danh sách các câu hỏi trong bài kiểm tra"""
+        """List of questions in the exam"""
 
     def shuffle_question(self):
         """
-        Phương thức này cho phép xáo trộn toàn bộ các câu hỏi trong bài kiểm tra.
+        This method allows to shuffle all the questions in the exam.
         """
         r = random.SystemRandom()
         r.shuffle(self.question_list)
