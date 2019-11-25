@@ -24,6 +24,7 @@ class Question:
     def answer_a(self, answer: str, true_answer=False):
         """
         This method is used to enter answer A for the question.
+
         :param answer: Content of the answer A
         :param true_answer: If this is the correct answer then enter True, if false then enter
         False.
@@ -34,9 +35,11 @@ class Question:
     def answer_b(self, answer: str, true_answer=False):
         """
         This method is used to enter answer B to the question.
+
         :param answer: Content of the answer B
         :param true_answer: If this is the correct answer then enter True, if false then enter
         False.
+
         """
         self.__answer_b.answer = answer
         self.__answer_b.is_true_answer = true_answer
@@ -44,9 +47,11 @@ class Question:
     def answer_c(self, answer: str, true_answer=False):
         """
         This method is used to enter answer C to the question.
+
         :param answer: Content of the answer C
         :param true_answer: If this is the correct answer then enter True, if false then enter
         False.
+
         """
         self.__answer_c.answer = answer
         self.__answer_c.is_true_answer = true_answer
@@ -54,9 +59,11 @@ class Question:
     def answer_d(self, answer: str, true_answer=False):
         """
         This method is used to enter answer D for the question.
+
         :param answer: Content of the answer D
         :param true_answer: If this is the correct answer then enter True, if false then enter
         False.
+
         """
         self.__answer_d.answer = answer
         self.__answer_d.is_true_answer = true_answer
@@ -64,9 +71,11 @@ class Question:
     def get_answer(self, answer_number: int) -> str:
         """
         This method is used to get answers to questions.
-        :param answer_number: The number corresponding to the answer of the question. Specifically:
-         want to get answer A then enter 1, B enter 2, C enter 3, and D enter 4.
+
+        :param answer_number: The number corresponding to the answer of the question.
+        Specifically: want to get answer A then enter 1, B enter 2, C enter 3, and D enter 4.
         :return: The answer corresponds to the selected answer.
+
         """
         answer_list = {
             1: self.__answer_a.answer,
@@ -79,6 +88,7 @@ class Question:
     def shuffle_answer(self):
         """
         The method that allows the swap answers in question.
+
         """
         answer_list = [self.__answer_a, self.__answer_b, self.__answer_c, self.__answer_d]
         r = random.SystemRandom()
@@ -92,7 +102,9 @@ class Question:
         """
         This method allows you to enter the number of columns where the answer will be displayed
         when printing the question. The possible values ​​are 1, 2, 4
+
         :param answer_column: The number of columns the answer will be displayed when printed.
+
         """
         if answer_column in [1, 2, 4]:
             self.__answer_column = answer_column
@@ -101,6 +113,7 @@ class Question:
         """
         This method returns the number of columns where the answer will be presented when the
         question is printed. The function can return 1, 2, 4.
+
         :return: The number of columns the answer will be displayed when the question is printed
         """
         return self.__answer_column
@@ -109,6 +122,7 @@ class Question:
         """
         This method returns the character corresponding to the correct answer of the question.
         The possible answer are A, B, C, D.
+
         :return: The letter corresponding to the correct answer of the question
         """
         if self.__answer_a.is_true_answer:

@@ -38,6 +38,7 @@ class LatexExam:
         """
         This method allows adding the necessary lines in the preamble of the latex file,
         eg usepackage ...
+
         :param preamble: The part to add to preamble.
         """
         self.latex_preamble += ("\n" + preamble)
@@ -56,6 +57,7 @@ class LatexExam:
     def __print_question_2(question: Question) -> str:
         """
         Print the question as 2 columns.
+
         :param question: Questions to print.
         :return: Character string representing the question content in latex.
         """
@@ -82,6 +84,7 @@ class LatexExam:
     def __print_question_4(question: Question) -> str:
         """
         Print the question as 4 columns.
+
         :param question: Questions to print.
         :return: Character string representing the question content in latex.
         """
@@ -109,6 +112,7 @@ class LatexExam:
     def __print_question_1(question: Question) -> str:
         """
         Print the question as a column.
+
         :param question: Questions to print.
         :return: Character string representing the question content in latex.
         """
@@ -134,6 +138,7 @@ class LatexExam:
     def export_tex_exam(self, file_name: str):
         """
         This method proposed exam as a tex file.
+
         :param file_name: The file name will output.
         """
         question_list_string = ""
@@ -158,6 +163,7 @@ class LatexExam:
     def export_pdf_exam(self, file_name: str):
         """
         This method export the exam as a pdf file.
+
         :param file_name: The file name will output.
         """
         self.export_tex_exam(file_name)
@@ -166,6 +172,7 @@ class LatexExam:
     def export_tex_answer(self, file_name: str):
         """
         This method export the answer as a tex file.
+
         :param file_name: The file name will output.
         """
         exam_answer = ""
@@ -192,6 +199,7 @@ class LatexExam:
     def export_pdf_answer(self, file_name: str):
         """
         This method export the answer as a tex file.
+
         :param file_name: The file name will output.
         """
         self.export_tex_answer(file_name)

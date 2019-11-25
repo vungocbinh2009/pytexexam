@@ -5,6 +5,7 @@ class Answer:
     def __init__(self, answer: str = "", is_true_answer=False):
         """
         This method initializes an Answer object.
+
         :param answer: Answer to the question.
         :param is_true_answer: If the answer is true,the value is True, if false then False.
         """
