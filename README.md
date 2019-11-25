@@ -2,8 +2,7 @@
 
 A simple library for writing and printing exam in Python.
 
-## Installation Instructions
-Bạn có thể cài đặt nó trên PyPI
+## Installation
 ```shell
 pip install pytexexam
 ```
