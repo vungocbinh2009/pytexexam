@@ -1,5 +1,6 @@
 from answer import Answer
 import random
+from typing import Dict
 
 
 class Question:
@@ -20,6 +21,8 @@ class Question:
         self.__answer_column = 1
         """Number of columns for which the answer will be presented. Answers can be presented as 
         1 column, 2 columns or 4 columns"""
+        self.__solution = ""
+        """Solution of the question"""
 
     def answer_a(self, answer: str, true_answer=False):
         """
@@ -67,6 +70,28 @@ class Question:
         """
         self.__answer_d.answer = answer
         self.__answer_d.is_true_answer = true_answer
+
+    def answers(self, true_answer: str, answer_dict: Dict[str, str]):
+        """
+        Another way to enter answers to questions.
+
+        :param true_answer: The letter that corresponds to the correct answer in the question (A, B,
+        C, D)
+        :param answer_dict: A dictionary contains the answers to the questions.The corresponding key
+         of this dictionary is A, B, C, D.
+        """
+        self.__answer_a.answer = answer_dict.get("A")
+        self.__answer_b.answer = answer_dict.get("B")
+        self.__answer_c.answer = answer_dict.get("C")
+        self.__answer_d.answer = answer_dict.get("D")
+        if true_answer == "A":
+            self.__answer_a.is_true_answer = True
+        elif true_answer == "B":
+            self.__answer_b.is_true_answer = True
+        elif true_answer == "C":
+            self.__answer_c.is_true_answer = True
+        else:
+            self.__answer_d.is_true_answer = True
 
     def get_answer(self, answer_number: int) -> str:
         """
@@ -133,3 +158,10 @@ class Question:
             return "C"
         else:
             return "D"
+
+    def solution(self, solution: str):
+        """This method is used to enter detailed answer to the question"""
+        self.__solution = solution
+
+    def get_solution(self) -> str:
+        return self.__solution

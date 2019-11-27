@@ -14,6 +14,8 @@ class LatexExam:
         """The content of the exam"""
         self.question_theorem = "Question"
         """The content of the beginning of each question will be printed"""
+        self.solution_theorem = "Detailed answer"
+        """The content of the beginning of each detailed answer will be printed"""
         self.latex_preamble: str = """
         \\documentclass[12pt,a4paper,notitlepage]{{article}}
         \\usepackage[utf8]{{vietnam}}
@@ -52,6 +54,15 @@ class LatexExam:
         \\usepackage{amsfonts}
         \\usepackage{amssymb}
         """)
+
+    @staticmethod
+    def __print_question(question: Question) -> str:
+        if question.get_answer_column() == 1:
+            return LatexExam.__print_question_1(question)
+        elif question.get_answer_column() == 2:
+            return LatexExam.__print_question_2(question)
+        else:
+            return LatexExam.__print_question_4(question)
 
     @staticmethod
     def __print_question_2(question: Question) -> str:
@@ -143,12 +154,7 @@ class LatexExam:
         """
         question_list_string = ""
         for question in self.exam_content.question_list:
-            if question.get_answer_column() == 1:
-                question_list_string += (self.__print_question_1(question) + "\n")
-            elif question.get_answer_column() == 2:
-                question_list_string += (self.__print_question_2(question) + "\n")
-            else:
-                question_list_string += (self.__print_question_4(question) + "\n")
+            question_list_string += (self.__print_question(question) + "\n")
         latex_string = inspect.cleandoc("""
         {latex_preamble}
         \\begin{{document}}
@@ -204,3 +210,32 @@ class LatexExam:
         """
         self.export_tex_answer(file_name)
         os.system("pdflatex {file_name}".format(file_name=file_name))
+
+    def export_tex_solution(self, file_name: str):
+        """Export a file containing detailed answers for each question in the exam"""
+        solution_string = ""
+        for question in self.exam_content.question_list:
+            solution_string += (self.__print_question(question) + "\n")
+            solution_string += """
+            \\begin{{solution}}
+            {solution}
+            \\end{{solution}}
+            """.format(solution=question.get_solution())
+
+        latex_string = inspect.cleandoc("""
+        {latex_preamble}
+        \\newtheorem{{solution}}{{{solution_theorem}}}
+        \\begin{{document}}
+        {exam_header}
+        {solution_list}
+        \\end{{document}}
+        """.format(latex_preamble=self.latex_preamble, solution_theorem=self.solution_theorem,
+                   exam_header=self.exam_header, solution_list=solution_string))
+        file = open(file_name, "wt")
+        file.write(latex_string)
+
+    def export_pdf_solution(self, file_name: str):
+        """Export a file containing detailed answers for each question in the exam"""
+        self.export_tex_solution(file_name)
+        os.system("pdflatex {file_name}".format(file_name=file_name))
+        pass
