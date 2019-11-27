@@ -75,10 +75,9 @@ class Question:
         """
         Another way to enter answers to questions.
 
-        :param true_answer: The letter that corresponds to the correct answer in the question (A, B,
-        C, D)
-        :param answer_dict: A dictionary contains the answers to the questions.The corresponding key
-         of this dictionary is A, B, C, D.
+        :param true_answer: The letter that corresponds to the correct answer in the question (A, B, C, D)
+        :param answer_dict: A dictionary contains the answers to the questions.The corresponding
+        key of this dictionary is A, B, C, D.
         """
         self.__answer_a.answer = answer_dict.get("A")
         self.__answer_b.answer = answer_dict.get("B")

@@ -14,7 +14,7 @@ class LatexExam:
         """The content of the exam"""
         self.question_theorem = "Question"
         """The content of the beginning of each question will be printed"""
-        self.solution_theorem = "Detailed answer"
+        self.solution_theorem = "Solution"
         """The content of the beginning of each detailed answer will be printed"""
         self.latex_preamble: str = """
         \\documentclass[12pt,a4paper,notitlepage]{{article}}
