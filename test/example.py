@@ -1,6 +1,4 @@
-from pytexexam.question import Question
-from pytexexam.exam import Exam
-from pytexexam.latexexam import LatexExam
+from pytexexam import Question, Exam, LatexExam
 
 question = Question("Question 1 ?")
 question.answer_a("Answer 1", True)

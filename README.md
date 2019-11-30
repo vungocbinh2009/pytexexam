@@ -9,9 +9,7 @@ pip install pytexexam
 
 ## How to use
 ```python
-from pytexexam.question import Question
-from pytexexam.exam import Exam
-from pytexexam.latexexam import LatexExam
+from pytexexam import Question, Exam, LatexExam
 
 # Create questions, answers and solution.
 question = Question("Question 1 ?")
