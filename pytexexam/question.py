@@ -92,22 +92,22 @@ class Question:
         else:
             self.__answer_d.is_true_answer = True
 
-    def get_answer(self, answer_number: int) -> str:
+    def get_answer(self, answer_key: str) -> str:
         """
         This method is used to get answers to questions.
 
-        :param answer_number: The number corresponding to the answer of the question.
+        :param answer_key: The number corresponding to the answer of the question.
         Specifically: want to get answer A then enter 1, B enter 2, C enter 3, and D enter 4.
         :return: The answer corresponds to the selected answer.
 
         """
         answer_list = {
-            1: self.__answer_a.answer,
-            2: self.__answer_b.answer,
-            3: self.__answer_c.answer,
-            4: self.__answer_d.answer
+            "A": self.__answer_a.answer,
+            "B": self.__answer_b.answer,
+            "C": self.__answer_c.answer,
+            "D": self.__answer_d.answer
         }
-        return answer_list.get(answer_number, "Invalid")
+        return answer_list.get(answer_key, "Invalid")
 
     def shuffle_answer(self):
         """

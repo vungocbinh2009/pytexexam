@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+
+\begin{document}
+    {{exam_header}}
+
+    \begin{multicols}{5}
+        {% for question in questions %}
+        \textbf{ {{loop.index}} }: {{ question.get_true_answer() }}
+        {% endfor %}
+    \end{multicols}
+\end{document}

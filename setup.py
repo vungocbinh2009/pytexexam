@@ -13,5 +13,5 @@ setup(
     author_email='vungocbinh@protonmail.com',
     description='A simple library to create latex exam in python ',
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/markdown", install_requires=['jinja2']
 )

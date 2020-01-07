@@ -1,0 +1,15 @@
+\documentclass[12pt,a4paper,notitlepage]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{graphicx}
+\usepackage{array}
+\linespread{1.5}
+\newtheorem{question}{ {{question_theorem}} }
+{{user_preamble}}
+\begin{document}
+    {{exam_header}}
+
+    {% for question_str in questions_str %}
+    {{ question_str }}
+    {% endfor %}
+
+\end{document}
