@@ -1,4 +1,4 @@
-from pytexexam import Question, Exam, LatexExam
+from pytexexam import Question, Exam, LatexExam, latexexamutil
 
 question = Question("Question 1 ?")
 question.answer_a("Answer 1", True)
@@ -34,6 +34,7 @@ question3.shuffle_answer()
 exam = Exam([question, question2, question3])
 exam.shuffle_question()
 latex_exam = LatexExam("Simple exam", exam)
+latex_exam.add_user_preamble(latexexamutil.ams_math_package())
 latex_exam.export_tex_exam("test1.tex")
 latex_exam.export_pdf_exam("test1.pdf")
 latex_exam.export_tex_answer("answer1.tex")

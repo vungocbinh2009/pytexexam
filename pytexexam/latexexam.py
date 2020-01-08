@@ -11,12 +11,12 @@ class LatexExam:
     This class represents a exam, allowing users to print the exam and answer to a tex file
     or pdf (with latex pre-installed)
     """
-
     def __init__(self, exam_title: str, exam: Exam):
         self.__env = Environment(
             loader=PackageLoader('pytexexam', 'templates'),
             autoescape=False
         )
+        """The environment variable is used to render latex files"""
 
         self.exam_content: Exam = exam
         """The content of the exam"""
@@ -32,9 +32,16 @@ class LatexExam:
         """The presentation of the exam's header"""
 
     def add_user_preamble(self, preamble: str):
-        self.user_preamble += "\\n" + preamble + "\\n"
+        """Added preamble of latex file"""
+        self.user_preamble += preamble
 
     def __print_question(self, question: Question) -> str:
+        """
+        Print the question as a string
+
+        :param question: Questions to print.
+        :return: Character string representing the question content in latex.
+        """
         if question.get_answer_column() == 1:
             return self.__print_question_1(question)
         elif question.get_answer_column() == 2:
@@ -79,6 +86,11 @@ class LatexExam:
                                answer_d=question.get_answer("D"))
 
     def __get_questions_str(self) -> List[str]:
+        """
+        Get the latex code of all the questions in the exam
+
+        :return: List of latex codes questions
+        """
         questions_str: List[str] = []
         for question in self.exam_content.question_list:
             question_str = self.__print_question(question)
@@ -86,6 +98,11 @@ class LatexExam:
         return questions_str
 
     def __get_solutions_str(self) -> List[str]:
+        """
+        Get the latex code of the answers found in all the exam questions
+
+        :return: List of latex codes solution
+        """
         template = self.__env.get_template("mcqsolution.tex")
         solutions_str: List[str] = []
         for question in self.exam_content.question_list:

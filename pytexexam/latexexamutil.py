@@ -1,9 +1,12 @@
-# Đây là file chứa các phương thức tiện lợi mà ta hay dùng.
+import inspect
 
 
 def ams_math_package() -> str:
-    return """
+    """
+    Returns the command lines needed to type math formula in latex
+    """
+    return inspect.cleandoc("""
     \\usepackage{amsmath}
     \\usepackage{amsfonts}
     \\usepackage{amssymb}
-    """
+    """)
