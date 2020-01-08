@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pytexexam.latexexam &#8212; pytexexam 1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pytexexam.latexexam</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">exam</span> <span class="k">import</span> <span class="n">Exam</span>
+<span class="kn">from</span> <span class="nn">question</span> <span class="k">import</span> <span class="n">Question</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="k">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">PackageLoader</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<div class="viewcode-block" id="LatexExam"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam">[docs]</a><span class="k">class</span> <span class="nc">LatexExam</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class represents a exam, allowing users to print the exam and answer to a tex file</span>
+<span class="sd">    or pdf (with latex pre-installed)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exam_title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exam</span><span class="p">:</span> <span class="n">Exam</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span>
+            <span class="n">loader</span><span class="o">=</span><span class="n">PackageLoader</span><span class="p">(</span><span class="s1">&#39;pytexexam&#39;</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">),</span>
+            <span class="n">autoescape</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;The environment variable is used to render latex files&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_content</span><span class="p">:</span> <span class="n">Exam</span> <span class="o">=</span> <span class="n">exam</span>
+        <span class="sd">&quot;&quot;&quot;The content of the exam&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">question_theorem</span> <span class="o">=</span> <span class="s2">&quot;Question&quot;</span>
+        <span class="sd">&quot;&quot;&quot;The content of the beginning of each question will be printed&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">solution_theorem</span> <span class="o">=</span> <span class="s2">&quot;Solution&quot;</span>
+        <span class="sd">&quot;&quot;&quot;The content of the beginning of each detailed answer will be printed&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_preamble</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Preamble of the latex file corresponds to the exam&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">exam_title</span>
+        <span class="sd">&quot;&quot;&quot;Exam name&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_header</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;examheader.tex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">exam_title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_title</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;The presentation of the exam&#39;s header&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LatexExam.add_user_preamble"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam.add_user_preamble">[docs]</a>    <span class="k">def</span> <span class="nf">add_user_preamble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preamble</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Added preamble of latex file&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_preamble</span> <span class="o">+=</span> <span class="n">preamble</span></div>
+
+    <span class="k">def</span> <span class="nf">__print_question</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="n">Question</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print the question as a string</span>
+
+<span class="sd">        :param question: Questions to print.</span>
+<span class="sd">        :return: Character string representing the question content in latex.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">question</span><span class="o">.</span><span class="n">get_answer_column</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__print_question_1</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">question</span><span class="o">.</span><span class="n">get_answer_column</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__print_question_2</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__print_question_4</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__print_question_1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="n">Question</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print the question as a column.</span>
+
+<span class="sd">        :param question: Questions to print.</span>
+<span class="sd">        :return: Character string representing the question content in latex.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;mcq1.tex&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">question</span><span class="p">,</span> <span class="n">answer_a</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">),</span>
+                               <span class="n">answer_b</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="n">answer_c</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">),</span>
+                               <span class="n">answer_d</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__print_question_2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="n">Question</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print the question as 2 columns.</span>
+
+<span class="sd">        :param question: Questions to print.</span>
+<span class="sd">        :return: Character string representing the question content in latex.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;mcq2.tex&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">question</span><span class="p">,</span> <span class="n">answer_a</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">),</span>
+                               <span class="n">answer_b</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="n">answer_c</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">),</span>
+                               <span class="n">answer_d</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__print_question_4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="n">Question</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print the question as 4 columns.</span>
+
+<span class="sd">        :param question: Questions to print.</span>
+<span class="sd">        :return: Character string representing the question content in latex.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;mcq4.tex&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">question</span><span class="p">,</span> <span class="n">answer_a</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">),</span>
+                               <span class="n">answer_b</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="n">answer_c</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">),</span>
+                               <span class="n">answer_d</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__get_questions_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the latex code of all the questions in the exam</span>
+
+<span class="sd">        :return: List of latex codes questions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">questions_str</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">question</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exam_content</span><span class="o">.</span><span class="n">question_list</span><span class="p">:</span>
+            <span class="n">question_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__print_question</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+            <span class="n">questions_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">question_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">questions_str</span>
+
+    <span class="k">def</span> <span class="nf">__get_solutions_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the latex code of the answers found in all the exam questions</span>
+
+<span class="sd">        :return: List of latex codes solution</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;mcqsolution.tex&quot;</span><span class="p">)</span>
+        <span class="n">solutions_str</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">question</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exam_content</span><span class="o">.</span><span class="n">question_list</span><span class="p">:</span>
+            <span class="n">solution_str</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__print_question</span><span class="p">(</span><span class="n">question</span><span class="p">),</span>
+                                           <span class="n">solution</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">get_solution</span><span class="p">())</span>
+            <span class="n">solutions_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">solution_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">solutions_str</span>
+
+<div class="viewcode-block" id="LatexExam.export_tex_exam"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam.export_tex_exam">[docs]</a>    <span class="k">def</span> <span class="nf">export_tex_exam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method proposed exam as a tex file.</span>
+
+<span class="sd">        :param file_name: The file name will output.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;exam.tex&quot;</span><span class="p">)</span>
+        <span class="n">question_str_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_questions_str</span><span class="p">()</span>
+        <span class="n">template</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">questions_str</span><span class="o">=</span><span class="n">question_str_list</span><span class="p">,</span> <span class="n">question_theorem</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">question_theorem</span><span class="p">,</span>
+                        <span class="n">user_preamble</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_preamble</span><span class="p">,</span> <span class="n">exam_header</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_header</span>
+                        <span class="p">)</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LatexExam.export_pdf_exam"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam.export_pdf_exam">[docs]</a>    <span class="k">def</span> <span class="nf">export_pdf_exam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method export the exam as a pdf file.</span>
+
+<span class="sd">        :param file_name: The file name will output.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">export_tex_exam</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;pdflatex </span><span class="si">{file_name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LatexExam.export_tex_answer"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam.export_tex_answer">[docs]</a>    <span class="k">def</span> <span class="nf">export_tex_answer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method export the answer as a tex file.</span>
+
+<span class="sd">        :param file_name: The file name will output.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;answer.tex&quot;</span><span class="p">)</span>
+        <span class="n">template</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">questions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_content</span><span class="o">.</span><span class="n">question_list</span><span class="p">,</span> <span class="n">exam_header</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_header</span><span class="p">)</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LatexExam.export_pdf_answer"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam.export_pdf_answer">[docs]</a>    <span class="k">def</span> <span class="nf">export_pdf_answer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method export the answer as a tex file.</span>
+
+<span class="sd">        :param file_name: The file name will output.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">export_tex_answer</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;pdflatex </span><span class="si">{file_name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LatexExam.export_tex_solution"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam.export_tex_solution">[docs]</a>    <span class="k">def</span> <span class="nf">export_tex_solution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Export a file containing detailed answers for each question in the exam&quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;examsolution.tex&quot;</span><span class="p">)</span>
+        <span class="n">solution_str_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_solutions_str</span><span class="p">()</span>
+        <span class="n">template</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">solutions_str</span><span class="o">=</span><span class="n">solution_str_list</span><span class="p">,</span> <span class="n">question_theorem</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">question_theorem</span><span class="p">,</span>
+                        <span class="n">solution_theorem</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">solution_theorem</span><span class="p">,</span> <span class="n">user_preamble</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_preamble</span><span class="p">,</span>
+                        <span class="n">exam_header</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_header</span>
+                        <span class="p">)</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LatexExam.export_pdf_solution"><a class="viewcode-back" href="../../index.html#pytexexam.LatexExam.export_pdf_solution">[docs]</a>    <span class="k">def</span> <span class="nf">export_pdf_solution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Export a file containing detailed answers for each question in the exam&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">export_tex_solution</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;pdflatex </span><span class="si">{file_name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">))</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">pytexexam</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Vu Ngoc Binh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

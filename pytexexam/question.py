@@ -29,8 +29,8 @@ class Question:
         This method is used to enter answer A for the question.
 
         :param answer: Content of the answer A
-        :param true_answer: If this is the correct answer then enter True, if false then enter
-        False.
+        :param true_answer: If this is the correct answer then enter True. otherwise False
+
         """
         self.__answer_a.answer = answer
         self.__answer_a.is_true_answer = true_answer
@@ -40,8 +40,7 @@ class Question:
         This method is used to enter answer B to the question.
 
         :param answer: Content of the answer B
-        :param true_answer: If this is the correct answer then enter True, if false then enter
-        False.
+        :param true_answer: If this is the correct answer then enter True, otherwise False
 
         """
         self.__answer_b.answer = answer
@@ -52,8 +51,7 @@ class Question:
         This method is used to enter answer C to the question.
 
         :param answer: Content of the answer C
-        :param true_answer: If this is the correct answer then enter True, if false then enter
-        False.
+        :param true_answer: If this is the correct answer then enter True, otherwise False
 
         """
         self.__answer_c.answer = answer
@@ -64,8 +62,7 @@ class Question:
         This method is used to enter answer D for the question.
 
         :param answer: Content of the answer D
-        :param true_answer: If this is the correct answer then enter True, if false then enter
-        False.
+        :param true_answer: If this is the correct answer then enter True, otherwise False
 
         """
         self.__answer_d.answer = answer
@@ -75,9 +72,10 @@ class Question:
         """
         Another way to enter answers to questions.
 
-        :param true_answer: The letter that corresponds to the correct answer in the question (A, B, C, D)
-        :param answer_dict: A dictionary contains the answers to the questions.The corresponding
-        key of this dictionary is A, B, C, D.
+        :param true_answer: The letter that corresponds to the correct answer (A, B, C, D)
+        :param answer_dict: A dictionary contains the answers to the questions. \
+        The corresponding key of this dictionary is A, B, C, D.
+
         """
         self.__answer_a.answer = answer_dict.get("A")
         self.__answer_b.answer = answer_dict.get("B")
@@ -96,8 +94,7 @@ class Question:
         """
         This method is used to get answers to questions.
 
-        :param answer_key: The number corresponding to the answer of the question.
-        Specifically: want to get answer A then enter 1, B enter 2, C enter 3, and D enter 4.
+        :param answer_key: The key corresponding to the answer of the question.
         :return: The answer corresponds to the selected answer.
 
         """

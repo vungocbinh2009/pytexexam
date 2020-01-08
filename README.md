@@ -9,7 +9,7 @@ pip install pytexexam
 
 ## How to use
 ```python
-from pytexexam import Question, Exam, LatexExam
+from pytexexam import Question, Exam, LatexExam, latexexamutil
 
 # Create questions, answers and solution.
 question = Question("Question 1 ?")
@@ -54,7 +54,7 @@ exam.shuffle_question()
 # Create a LatexExam object to export a question as a tex or pdf file (with latex pre-installed)
 latex_exam = LatexExam("Simple exam", exam)
 # Add AMS math packages, if needed.
-latex_exam.add_ams_math_preamble()
+latex_exam.add_user_preamble(latexexamutil.ams_math_package())
 
 # Export exam.
 latex_exam.export_tex_exam("test1.tex")

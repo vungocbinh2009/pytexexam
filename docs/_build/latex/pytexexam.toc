@@ -1,0 +1,5 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Pytexexam main class}{1}{chapter.1}% 
+\contentsline {chapter}{\numberline {2}Pytexexam util class}{5}{chapter.2}% 
+\contentsline {chapter}{Python Module Index}{7}{section*.38}% 
+\contentsline {chapter}{Index}{9}{section*.39}% 

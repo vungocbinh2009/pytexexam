@@ -1,0 +1,36 @@
+\indexentry{Answer (class in pytexexam.answer)@\spxentry{Answer}\spxextra{class in pytexexam.answer}|hyperpage}{1}
+\indexentry{pytexexam.question (module)@\spxentry{pytexexam.question}\spxextra{module}|hyperpage}{1}
+\indexentry{Question (class in pytexexam.question)@\spxentry{Question}\spxextra{class in pytexexam.question}|hyperpage}{1}
+\indexentry{answer\_a() (pytexexam.question.Question method)@\spxentry{answer\_a()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
+\indexentry{answer\_b() (pytexexam.question.Question method)@\spxentry{answer\_b()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
+\indexentry{answer\_c() (pytexexam.question.Question method)@\spxentry{answer\_c()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
+\indexentry{answer\_d() (pytexexam.question.Question method)@\spxentry{answer\_d()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
+\indexentry{answers() (pytexexam.question.Question method)@\spxentry{answers()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
+\indexentry{get\_answer() (pytexexam.question.Question method)@\spxentry{get\_answer()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
+\indexentry{get\_answer\_column() (pytexexam.question.Question method)@\spxentry{get\_answer\_column()}\spxextra{pytexexam.question.Question method}|hyperpage}{2}
+\indexentry{get\_true\_answer() (pytexexam.question.Question method)@\spxentry{get\_true\_answer()}\spxextra{pytexexam.question.Question method}|hyperpage}{2}
+\indexentry{question (pytexexam.question.Question attribute)@\spxentry{question}\spxextra{pytexexam.question.Question attribute}|hyperpage}{2}
+\indexentry{set\_answer\_column() (pytexexam.question.Question method)@\spxentry{set\_answer\_column()}\spxextra{pytexexam.question.Question method}|hyperpage}{2}
+\indexentry{shuffle\_answer() (pytexexam.question.Question method)@\spxentry{shuffle\_answer()}\spxextra{pytexexam.question.Question method}|hyperpage}{2}
+\indexentry{solution() (pytexexam.question.Question method)@\spxentry{solution()}\spxextra{pytexexam.question.Question method}|hyperpage}{2}
+\indexentry{pytexexam.exam (module)@\spxentry{pytexexam.exam}\spxextra{module}|hyperpage}{2}
+\indexentry{Exam (class in pytexexam.exam)@\spxentry{Exam}\spxextra{class in pytexexam.exam}|hyperpage}{2}
+\indexentry{question\_list (pytexexam.exam.Exam attribute)@\spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}|hyperpage}{2}
+\indexentry{shuffle\_question() (pytexexam.exam.Exam method)@\spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}|hyperpage}{2}
+\indexentry{pytexexam.latexexam (module)@\spxentry{pytexexam.latexexam}\spxextra{module}|hyperpage}{2}
+\indexentry{LatexExam (class in pytexexam.latexexam)@\spxentry{LatexExam}\spxextra{class in pytexexam.latexexam}|hyperpage}{2}
+\indexentry{add\_user\_preamble() (pytexexam.latexexam.LatexExam method)@\spxentry{add\_user\_preamble()}\spxextra{pytexexam.latexexam.LatexExam method}|hyperpage}{2}
+\indexentry{exam\_content (pytexexam.latexexam.LatexExam attribute)@\spxentry{exam\_content}\spxextra{pytexexam.latexexam.LatexExam attribute}|hyperpage}{2}
+\indexentry{exam\_header (pytexexam.latexexam.LatexExam attribute)@\spxentry{exam\_header}\spxextra{pytexexam.latexexam.LatexExam attribute}|hyperpage}{2}
+\indexentry{exam\_title (pytexexam.latexexam.LatexExam attribute)@\spxentry{exam\_title}\spxextra{pytexexam.latexexam.LatexExam attribute}|hyperpage}{2}
+\indexentry{export\_pdf\_answer() (pytexexam.latexexam.LatexExam method)@\spxentry{export\_pdf\_answer()}\spxextra{pytexexam.latexexam.LatexExam method}|hyperpage}{2}
+\indexentry{export\_pdf\_exam() (pytexexam.latexexam.LatexExam method)@\spxentry{export\_pdf\_exam()}\spxextra{pytexexam.latexexam.LatexExam method}|hyperpage}{2}
+\indexentry{export\_pdf\_solution() (pytexexam.latexexam.LatexExam method)@\spxentry{export\_pdf\_solution()}\spxextra{pytexexam.latexexam.LatexExam method}|hyperpage}{3}
+\indexentry{export\_tex\_answer() (pytexexam.latexexam.LatexExam method)@\spxentry{export\_tex\_answer()}\spxextra{pytexexam.latexexam.LatexExam method}|hyperpage}{3}
+\indexentry{export\_tex\_exam() (pytexexam.latexexam.LatexExam method)@\spxentry{export\_tex\_exam()}\spxextra{pytexexam.latexexam.LatexExam method}|hyperpage}{3}
+\indexentry{export\_tex\_solution() (pytexexam.latexexam.LatexExam method)@\spxentry{export\_tex\_solution()}\spxextra{pytexexam.latexexam.LatexExam method}|hyperpage}{3}
+\indexentry{question\_theorem (pytexexam.latexexam.LatexExam attribute)@\spxentry{question\_theorem}\spxextra{pytexexam.latexexam.LatexExam attribute}|hyperpage}{3}
+\indexentry{solution\_theorem (pytexexam.latexexam.LatexExam attribute)@\spxentry{solution\_theorem}\spxextra{pytexexam.latexexam.LatexExam attribute}|hyperpage}{3}
+\indexentry{user\_preamble (pytexexam.latexexam.LatexExam attribute)@\spxentry{user\_preamble}\spxextra{pytexexam.latexexam.LatexExam attribute}|hyperpage}{3}
+\indexentry{pytexexam.latexexamutil (module)@\spxentry{pytexexam.latexexamutil}\spxextra{module}|hyperpage}{5}
+\indexentry{ams\_math\_package() (in module pytexexam.latexexamutil)@\spxentry{ams\_math\_package()}\spxextra{in module pytexexam.latexexamutil}|hyperpage}{5}

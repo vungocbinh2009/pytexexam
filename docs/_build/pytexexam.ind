@@ -1,0 +1,91 @@
+\begin{theindex}
+
+  \item \spxentry{add\_user\_preamble()}\spxextra{pytexexam.latexexam.LatexExam method}, 
+		\hyperpage{2}
+  \item \spxentry{ams\_math\_package()}\spxextra{in module pytexexam.latexexamutil}, 
+		\hyperpage{5}
+  \item \spxentry{answer\_a()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{1}
+  \item \spxentry{answer\_b()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{1}
+  \item \spxentry{answer\_c()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{1}
+  \item \spxentry{answer\_d()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{1}
+  \item \spxentry{answers()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{1}
+
+  \indexspace
+
+  \item \spxentry{Exam}\spxextra{class in pytexexam.exam}, 
+		\hyperpage{2}
+  \item \spxentry{exam\_content}\spxextra{pytexexam.latexexam.LatexExam attribute}, 
+		\hyperpage{2}
+  \item \spxentry{exam\_header}\spxextra{pytexexam.latexexam.LatexExam attribute}, 
+		\hyperpage{2}
+  \item \spxentry{exam\_title}\spxextra{pytexexam.latexexam.LatexExam attribute}, 
+		\hyperpage{2}
+  \item \spxentry{export\_pdf\_answer()}\spxextra{pytexexam.latexexam.LatexExam method}, 
+		\hyperpage{2}
+  \item \spxentry{export\_pdf\_exam()}\spxextra{pytexexam.latexexam.LatexExam method}, 
+		\hyperpage{2}
+  \item \spxentry{export\_pdf\_solution()}\spxextra{pytexexam.latexexam.LatexExam method}, 
+		\hyperpage{3}
+  \item \spxentry{export\_tex\_answer()}\spxextra{pytexexam.latexexam.LatexExam method}, 
+		\hyperpage{3}
+  \item \spxentry{export\_tex\_exam()}\spxextra{pytexexam.latexexam.LatexExam method}, 
+		\hyperpage{3}
+  \item \spxentry{export\_tex\_solution()}\spxextra{pytexexam.latexexam.LatexExam method}, 
+		\hyperpage{3}
+
+  \indexspace
+
+  \item \spxentry{get\_answer()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{1}
+  \item \spxentry{get\_answer\_column()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{2}
+  \item \spxentry{get\_true\_answer()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{2}
+
+  \indexspace
+
+  \item \spxentry{LatexExam}\spxextra{class in pytexexam.latexexam}, 
+		\hyperpage{2}
+
+  \indexspace
+
+  \item \spxentry{pytexexam.answer.Answer}\spxextra{module}, 
+		\hyperpage{1}
+  \item \spxentry{pytexexam.latexexamutil}\spxextra{module}, 
+		\hyperpage{5}
+
+  \indexspace
+
+  \item \spxentry{Question}\spxextra{class in pytexexam.question}, 
+		\hyperpage{1}
+  \item \spxentry{question}\spxextra{pytexexam.question.Question attribute}, 
+		\hyperpage{2}
+  \item \spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}, 
+		\hyperpage{2}
+  \item \spxentry{question\_theorem}\spxextra{pytexexam.latexexam.LatexExam attribute}, 
+		\hyperpage{3}
+
+  \indexspace
+
+  \item \spxentry{set\_answer\_column()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{2}
+  \item \spxentry{shuffle\_answer()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{2}
+  \item \spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}, 
+		\hyperpage{2}
+  \item \spxentry{solution()}\spxextra{pytexexam.question.Question method}, 
+		\hyperpage{2}
+  \item \spxentry{solution\_theorem}\spxextra{pytexexam.latexexam.LatexExam attribute}, 
+		\hyperpage{3}
+
+  \indexspace
+
+  \item \spxentry{user\_preamble}\spxextra{pytexexam.latexexam.LatexExam attribute}, 
+		\hyperpage{3}
+
+\end{theindex}
