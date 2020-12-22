@@ -1,4 +1,5 @@
 from pytexexam import Question, Exam, LatexExam, latexexamutil
+from answer import Answer
 
 question = Question("Question 1 ?")
 question.answer_a("Answer 1", True)
@@ -17,6 +18,7 @@ question2.answers(true_answer="A", answer_dict={
     "C": "Answer 3",
     "D": "Answer 4"
 })
+answer = Answer()
 question2.solution("""
     Đây là đáp án chi tiết của câu hỏi thứ hai.
     """)

@@ -1,0 +1,2 @@
+include pytexexam/templates/*.tex
+recursive-include pytexexam/templates/ *.tex

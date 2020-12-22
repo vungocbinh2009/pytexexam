@@ -1,4 +1,4 @@
-from answer import Answer
+from .answer import Answer
 import random
 from typing import Dict
 

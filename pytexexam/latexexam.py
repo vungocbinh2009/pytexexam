@@ -1,7 +1,7 @@
 from typing import List
 
-from exam import Exam
-from question import Question
+from .exam import Exam
+from .question import Question
 from jinja2 import Environment, PackageLoader
 import os
 

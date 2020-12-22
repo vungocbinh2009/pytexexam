@@ -1,5 +1,5 @@
 import typing
-from question import Question
+from .question import Question
 import random
 
 
