@@ -1,13 +1,13 @@
-import typing
+from random import SystemRandom
+from typing import List
 from .question import Question
-import random
 
 
 class Exam:
     """
     This class represents an exam.
     """
-    def __init__(self, question_list: typing.List[Question]):
+    def __init__(self, question_list: List[Question]):
         self.question_list = question_list
         """List of questions in the exam"""
 
@@ -15,5 +15,4 @@ class Exam:
         """
         This method allows to shuffle all the questions in the exam.
         """
-        r = random.SystemRandom()
-        r.shuffle(self.question_list)
+        SystemRandom().shuffle(self.question_list)
