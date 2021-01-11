@@ -1,32 +1,42 @@
+from typing import List
+
+from jinja2env import jinja_env
 from latexpaper import LatexPaper
+from pytexexam import Question
 
 
 class LatexExamPaper(LatexPaper):
     def __init__(self):
         self.preamble = ""
         self.header = ""
-        self.questions = list()
+        self.questions: List[Question] = list()
         self.footer = ""
 
-    def __print_question(self):
-        pass
-
     def get_latex_string(self) -> str:
-        pass
+        question_str = ""
+        for question in self.questions:
+            question_str += (question.print_question_latex() + "\n\n")
+
+        return jinja_env.get_template("exam.tex").render(
+            user_preamble=self.preamble,
+            exam_header=self.header,
+            question_str=question_str
+        )
 
 
 class LatexExamAnswer(LatexPaper):
     def __init__(self):
         self.preamble = ""
         self.header = ""
-        self.questions = list()
+        self.questions: List[Question] = list()
         self.footer = ""
 
-    def __print_answer(self):
-        pass
-
     def get_latex_string(self) -> str:
-        pass
+        return jinja_env.get_template("answer.tex").render(
+            user_preamble=self.preamble,
+            exam_header=self.header,
+            questions=self.questions
+        )
 
 
 class LatexExamSolution(LatexPaper):
@@ -36,8 +46,12 @@ class LatexExamSolution(LatexPaper):
         self.questions = list()
         self.footer = ""
 
-    def __print_solution(self):
-        pass
-
     def get_latex_string(self) -> str:
-        pass
+        solution_str = ""
+        for question in self.questions:
+            solution_str += (question.print_solution_latex() + "\n\n")
+        return jinja_env.get_template("exam.tex").render(
+            user_preamble=self.preamble,
+            exam_header=self.header,
+            question_str=solution_str
+        )

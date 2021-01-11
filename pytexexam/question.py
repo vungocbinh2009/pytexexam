@@ -1,6 +1,7 @@
 import string
 from random import SystemRandom
 
+from jinja2env import jinja_env
 from .answer import Answer
 from typing import List
 
@@ -44,3 +45,31 @@ class Question:
 
     def shuffle_answer(self):
         SystemRandom().shuffle(self.answers)
+
+    def get_true_answer_key(self) -> str:
+        true_answer = ""
+        for answer in self.answers:
+            if answer.is_true_answer:
+                true_answer += answer.answer_key
+        return true_answer
+
+    def print_question_latex(self) -> str:
+        table_column = ""
+        for i in range(0, self.answer_column):
+            column_size = 1 / self.answer_column
+            table_column += f"S{{m{{ {column_size}\\linewidth }} }} "
+        answer_string = ""
+        for i, answer in enumerate(self.answers):
+            seperator = "\\\\\n" if((i+1) % self.answer_column == 0) else "&"
+            answer_string += f"\\textbf{{ {answer.answer_key} }}. {answer.answer} {seperator} "
+        return jinja_env.get_template("mcq.tex").render(
+            question=self.question,
+            table_column=table_column,
+            answer_string=answer_string
+        )
+
+    def print_solution_latex(self) -> str:
+        return jinja_env.get_template("mcqsolution.tex").render(
+            question=self.print_question_latex(),
+            solution=self.solution
+        )
