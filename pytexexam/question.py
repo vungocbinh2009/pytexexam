@@ -1,8 +1,8 @@
 import string
 from random import SystemRandom
 
+from answer import Answer
 from jinja2env import jinja_env
-from .answer import Answer
 from typing import List
 
 
@@ -58,10 +58,12 @@ class Question:
         for i in range(0, self.answer_column):
             column_size = 1 / self.answer_column
             table_column += f"S{{m{{ {column_size}\\linewidth }} }} "
+
         answer_string = ""
         for i, answer in enumerate(self.answers):
             seperator = "\\\\\n" if((i+1) % self.answer_column == 0) else "&"
             answer_string += f"\\textbf{{ {answer.answer_key} }}. {answer.answer} {seperator} "
+
         return jinja_env.get_template("mcq.tex").render(
             question=self.question,
             table_column=table_column,

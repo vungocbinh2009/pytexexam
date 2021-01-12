@@ -8,7 +8,9 @@
 \setlength\cellspacebottomlimit{5pt}
 {{user_preamble}}
 \begin{document}
-    {{exam_header | indent(4, False)}}
+    {{ exam_header | indent(4, False) }}
 
     {{ question_str | indent(4, False) }}
+
+    {{ exam_footer | indent(4, False) }}
 \end{document}

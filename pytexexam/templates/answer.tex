@@ -8,7 +8,9 @@
 
     \begin{multicols}{5}
         {% for question in questions %}
-        \textbf{ {{loop.index}} }: {{ question.get_true_answer_key }}
+        \textbf{ {{loop.index}} }: {{ question.get_true_answer_key() }}
         {% endfor %}
     \end{multicols}
+
+    {{ exam_footer | indent(4, False) }}
 \end{document}

@@ -1,6 +1,7 @@
 from random import SystemRandom
 from typing import List
-from .question import Question
+
+from question import Question
 
 
 class Exam:

@@ -1,45 +1,15 @@
-from pytexexam import Question, Exam, LatexExam, latexexamutil
-from answer import Answer
+from builder import LatexExamBuilder
 
-question = Question("Question 1 ?")
-question.answer_a("Answer 1", True)
-question.answer_b("Answer 2")
-question.answer_c("Answer 3")
-question.answer_d("Answer 4")
-question.shuffle_answer()
-question.solution("""
-    Đây là đáp án chi tiết của câu hỏi đầu tiên.
-    """)
-
-question2 = Question("Question 2 ?")
-question2.answers(true_answer="A", answer_dict={
-    "A": "Answer 1",
-    "B": "Answer 2",
-    "C": "Answer 3",
-    "D": "Answer 4"
-})
-answer = Answer()
-question2.solution("""
-    Đây là đáp án chi tiết của câu hỏi thứ hai.
-    """)
-question2.set_answer_column(2)
-question2.shuffle_answer()
-
-question3 = Question("Question 3 ?")
-question3.answer_a("Answer 1", True)
-question3.answer_b("Answer 2")
-question3.answer_c("Answer 3")
-question3.answer_d("Answer 4")
-question3.set_answer_column(4)
-question3.shuffle_answer()
-
-exam = Exam([question, question2, question3])
-exam.shuffle_question()
-latex_exam = LatexExam("Simple exam", exam)
-latex_exam.add_user_preamble(latexexamutil.ams_math_package())
-latex_exam.export_tex_exam("test1.tex")
-latex_exam.export_pdf_exam("test1.pdf")
-latex_exam.export_tex_answer("answer1.tex")
-latex_exam.export_pdf_answer("answer1.pdf")
-latex_exam.export_tex_solution("solution1.tex")
-latex_exam.export_pdf_solution("solution1.pdf")
+builder = LatexExamBuilder()
+builder.header = "This is a simple header"
+builder.footer = "This is a simple footer"
+builder.add_question(
+    "This is a simple question",
+    ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    "A",
+    4,
+    "This is solution for this question",
+)
+builder.create_exam("exam1")
+builder.create_answer("answer1")
+builder.create_solution("solution1")

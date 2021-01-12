@@ -2,7 +2,7 @@ from typing import List
 
 from latexexam import LatexExamPaper, LatexExamAnswer, LatexExamSolution
 from latexpaper import LatexPaper
-from pytexexam import Question
+from question import Question
 
 
 class LatexExamBuilder:
