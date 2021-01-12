@@ -53,5 +53,5 @@ class LatexExamSolution(LatexPaper):
         return jinja_env.get_template("exam.tex").render(
             user_preamble=self.preamble,
             exam_header=self.header,
-            question_str=solution_str
+            solution_str=solution_str
         )

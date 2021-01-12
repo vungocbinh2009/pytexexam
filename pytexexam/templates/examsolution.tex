@@ -11,7 +11,6 @@
 {{ user_preamble }}
 \begin{document}
     {{ exam_header | indent(4, False)}}
-    {% for solution_str in solutions_str %}
+
     {{ solution_str | indent(4, False)}}
-    {% endfor %}
 \end{document}

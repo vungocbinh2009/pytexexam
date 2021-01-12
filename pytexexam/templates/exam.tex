@@ -9,7 +9,6 @@
 {{user_preamble}}
 \begin{document}
     {{exam_header | indent(4, False)}}
-    {% for question_str in questions_str %}
+
     {{ question_str | indent(4, False) }}
-    {% endfor %}
 \end{document}
