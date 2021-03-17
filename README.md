@@ -9,64 +9,36 @@ pip install pytexexam
 
 ## How to use
 ```python
-from pytexexam import Question, Exam, LatexExam, latexexamutil
+import pytexexam.latexexamutil as util
+from pytexexam import LatexExamBuilder, ExamExportType
 
-# Create questions, answers and solution.
-question = Question("Question 1 ?")
-question.answer_a("Answer 1", True)
-question.answer_b("Answer 2")
-question.answer_c("Answer 3")
-question.answer_d("Answer 4")
-question.shuffle_answer()
-question.solution("""
-This is the detailed answer of the first question.
-""")
+# Create exam builder
+builder = LatexExamBuilder()
+# You can add preamble here
+builder.preamble = util.ams_math_package()
+# Exam header
+builder.header = "This is a simple header"
+# Exam footer
+builder.footer = "This is a simple footer"
+# You can export exam in tex file or pdf file (need Latex installed)
+builder.export_type = ExamExportType.PDF
+# Add question
+builder.add_question(
+    question="This is a simple question",
+    # Answers: This package auto add A, B, C, D ... in answers
+    answer=["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    # True answer key
+    true_answer="A",
+    # present answer in multiple column
+    answer_column=4,
+    # Solution of this question
+    solution="This is solution for this question",
+)
 
-# Another way to enter answer options.
-question2 = Question("Question 2 ?")
-question2.answers(true_answer="A", answer_dict={
-    "A": "Answer 1",
-    "B": "Answer 2",
-    "C": "Answer 3",
-    "D": "Answer 4"
-})
-question2.solution("""
-This is the detailed answer of the second question.
-""")
-question2.set_answer_column(2)
-question2.shuffle_answer()
-
-# One more question.
-question3 = Question("Question 3 ?")
-question3.answer_a("Answer 1", True)
-question3.answer_b("Answer 2")
-question3.answer_c("Answer 3")
-question3.answer_d("Answer 4")
-question3.set_answer_column(4)
-question3.shuffle_answer()
-
-# Create a exam from existing questions.
-exam = Exam([question, question2, question3])
-
-# Shuffle the questions.
-exam.shuffle_question()
-
-# Create a LatexExam object to export a question as a tex or pdf file (with latex pre-installed)
-latex_exam = LatexExam("Simple exam", exam)
-# Add AMS math packages, if needed.
-latex_exam.add_user_preamble(latexexamutil.ams_math_package())
-
-# Export exam.
-latex_exam.export_tex_exam("test1.tex")
-latex_exam.export_pdf_exam("test1.pdf")
-
-# Export answer keys
-latex_exam.export_tex_answer("answer1.tex")
-latex_exam.export_pdf_answer("answer1.pdf")
-
-# Export solutions.
-latex_exam.export_tex_solution("solution1.pdf")
-latex_exam.export_pdf_solution("solution1.pdf")
+# Creste exam, answer and solution!
+builder.create_exam("exam1")
+builder.create_answer("answer1")
+builder.create_solution("solution1")
 ```
 
 ## All package API.

@@ -44,9 +44,11 @@ class Question:
         return list(string.ascii_uppercase)
 
     def shuffle_answer(self):
+        """Shuffle answer list"""
         SystemRandom().shuffle(self.answers)
 
     def get_true_answer_key(self) -> str:
+        """Get answer key of true answer"""
         true_answer = ""
         for answer in self.answers:
             if answer.is_true_answer:
@@ -54,6 +56,7 @@ class Question:
         return true_answer
 
     def print_question_latex(self) -> str:
+        """generate latex code for this question"""
         table_column = ""
         for i in range(0, self.answer_column):
             column_size = 1 / self.answer_column
@@ -71,6 +74,7 @@ class Question:
         )
 
     def print_solution_latex(self) -> str:
+        """Generate latex code to print question and solution"""
         return jinja_env.get_template("mcqsolution.tex").render(
             question=self.print_question_latex(),
             solution=self.solution
