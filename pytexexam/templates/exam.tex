@@ -1,13 +1,16 @@
 \documentclass[12pt,a4paper,notitlepage]{article}
-\usepackage[utf8]{vietnam}
 \usepackage{graphicx}
 \usepackage{array}
 \linespread{1.5}
 \newtheorem{question}{ {{question_theorem}} }
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{5pt}
+\setlength\cellspacebottomlimit{5pt}
 {{user_preamble}}
 \begin{document}
-    {{exam_header | indent(4, False)}}
-    {% for question_str in questions_str %}
+    {{ exam_header | indent(4, False) }}
+
     {{ question_str | indent(4, False) }}
-    {% endfor %}
+
+    {{ exam_footer | indent(4, False) }}
 \end{document}

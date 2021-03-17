@@ -1,13 +1,16 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{multicol}
-
+\linespread{1.5}
+{{user_preamble}}
 \begin{document}
     {{exam_header | indent(4, False)}}
 
     \begin{multicols}{5}
         {% for question in questions %}
-        \textbf{ {{loop.index}} }: {{ question.get_true_answer() }}
+        \textbf{ {{loop.index}} }: {{ question.get_true_answer_key() }}
         {% endfor %}
     \end{multicols}
+
+    {{ exam_footer | indent(4, False) }}
 \end{document}

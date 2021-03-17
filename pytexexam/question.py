@@ -1,163 +1,81 @@
-from .answer import Answer
-import random
-from typing import Dict
+import string
+from random import SystemRandom
+
+from answer import Answer
+from jinja2env import jinja_env
+from typing import List
 
 
 class Question:
     """
     This class represents one question on the test.
     """
-    def __init__(self, question: str):
+    def __init__(self, question: str, answers: List[str], true_answer: str, solution: str, answer_column: int):
         self.question: str = question
         """Content of the question."""
-        self.__answer_a = Answer()
-        """Content of the answer A"""
-        self.__answer_b = Answer()
-        """Content of the answer B"""
-        self.__answer_c = Answer()
-        """Content of the answer C"""
-        self.__answer_d = Answer()
-        """Content of the answer D"""
-        self.__answer_column = 1
-        """Number of columns for which the answer will be presented. Answers can be presented as 
-        1 column, 2 columns or 4 columns"""
-        self.__solution = ""
+        self.answers: List[Answer] = self.__get_answer_list(answers, true_answer)
+        """Question answers"""
+        self.answer_column = answer_column
+        """Number of columns for which the answer will be presented."""
+        self.solution = solution
         """Solution of the question"""
 
-    def answer_a(self, answer: str, true_answer=False):
+    @staticmethod
+    def __get_answer_list(answers: List[str], true_answer: str) -> List[Answer]:
         """
-        This method is used to enter answer A for the question.
-
-        :param answer: Content of the answer A
-        :param true_answer: If this is the correct answer then enter True. otherwise False
-
+        Generate a list of answer object from answer and true answer key
+        :param answers: question answer list.
+        :param true_answer: answer key of true answer.
+        :return: a list of answer object.
         """
-        self.__answer_a.answer = answer
-        self.__answer_a.is_true_answer = true_answer
+        answer_key = Question.__get_answer_key()
+        answer_list_size = min(len(answer_key), len(answers))
+        answer_list: List[Answer] = []
+        for i in range(0, answer_list_size):
+            answer_list.append(Answer(answer_key[i], answers[i], answer_key[i] == true_answer))
+        return answer_list
 
-    def answer_b(self, answer: str, true_answer=False):
+    @staticmethod
+    def __get_answer_key() -> List[str]:
         """
-        This method is used to enter answer B to the question.
-
-        :param answer: Content of the answer B
-        :param true_answer: If this is the correct answer then enter True, otherwise False
-
+        get list of alphabet character. (to use it as answer key)
+        :return: Alphabet character list.
         """
-        self.__answer_b.answer = answer
-        self.__answer_b.is_true_answer = true_answer
-
-    def answer_c(self, answer: str, true_answer=False):
-        """
-        This method is used to enter answer C to the question.
-
-        :param answer: Content of the answer C
-        :param true_answer: If this is the correct answer then enter True, otherwise False
-
-        """
-        self.__answer_c.answer = answer
-        self.__answer_c.is_true_answer = true_answer
-
-    def answer_d(self, answer: str, true_answer=False):
-        """
-        This method is used to enter answer D for the question.
-
-        :param answer: Content of the answer D
-        :param true_answer: If this is the correct answer then enter True, otherwise False
-
-        """
-        self.__answer_d.answer = answer
-        self.__answer_d.is_true_answer = true_answer
-
-    def answers(self, true_answer: str, answer_dict: Dict[str, str]):
-        """
-        Another way to enter answers to questions.
-
-        :param true_answer: The letter that corresponds to the correct answer (A, B, C, D)
-        :param answer_dict: A dictionary contains the answers to the questions. \
-        The corresponding key of this dictionary is A, B, C, D.
-
-        """
-        self.__answer_a.answer = answer_dict.get("A")
-        self.__answer_b.answer = answer_dict.get("B")
-        self.__answer_c.answer = answer_dict.get("C")
-        self.__answer_d.answer = answer_dict.get("D")
-        if true_answer == "A":
-            self.__answer_a.is_true_answer = True
-        elif true_answer == "B":
-            self.__answer_b.is_true_answer = True
-        elif true_answer == "C":
-            self.__answer_c.is_true_answer = True
-        else:
-            self.__answer_d.is_true_answer = True
-
-    def get_answer(self, answer_key: str) -> str:
-        """
-        This method is used to get answers to questions.
-
-        :param answer_key: The key corresponding to the answer of the question.
-        :return: The answer corresponds to the selected answer.
-
-        """
-        answer_list = {
-            "A": self.__answer_a.answer,
-            "B": self.__answer_b.answer,
-            "C": self.__answer_c.answer,
-            "D": self.__answer_d.answer
-        }
-        return answer_list.get(answer_key, "Invalid")
+        return list(string.ascii_uppercase)
 
     def shuffle_answer(self):
-        """
-        The method that allows the swap answers in question.
+        """Shuffle answer list"""
+        SystemRandom().shuffle(self.answers)
 
-        """
-        answer_list = [self.__answer_a, self.__answer_b, self.__answer_c, self.__answer_d]
-        r = random.SystemRandom()
-        r.shuffle(answer_list)
-        self.__answer_a = answer_list[0]
-        self.__answer_b = answer_list[1]
-        self.__answer_c = answer_list[2]
-        self.__answer_d = answer_list[3]
+    def get_true_answer_key(self) -> str:
+        """Get answer key of true answer"""
+        true_answer = ""
+        for answer in self.answers:
+            if answer.is_true_answer:
+                true_answer += answer.answer_key
+        return true_answer
 
-    def set_answer_column(self, answer_column: int):
-        """
-        This method allows you to enter the number of columns where the answer will be displayed
-        when printing the question. The possible values ​​are 1, 2, 4
+    def print_question_latex(self) -> str:
+        """generate latex code for this question"""
+        table_column = ""
+        for i in range(0, self.answer_column):
+            column_size = 1 / self.answer_column
+            table_column += f"S{{m{{ {column_size}\\linewidth }} }} "
 
-        :param answer_column: The number of columns the answer will be displayed when printed.
+        answer_string = ""
+        for i, answer in enumerate(self.answers):
+            seperator = "\\\\\n" if((i+1) % self.answer_column == 0) else "&"
+            answer_string += f"\\textbf{{ {answer.answer_key} }}. {answer.answer} {seperator} "
 
-        """
-        if answer_column in [1, 2, 4]:
-            self.__answer_column = answer_column
+        return jinja_env.get_template("mcq.tex").render(
+            question=self.question,
+            table_column=table_column,
+            answer_string=answer_string
+        )
 
-    def get_answer_column(self) -> int:
-        """
-        This method returns the number of columns where the answer will be presented when the
-        question is printed. The function can return 1, 2, 4.
-
-        :return: The number of columns the answer will be displayed when the question is printed
-        """
-        return self.__answer_column
-
-    def get_true_answer(self) -> str:
-        """
-        This method returns the character corresponding to the correct answer of the question.
-        The possible answer are A, B, C, D.
-
-        :return: The letter corresponding to the correct answer of the question
-        """
-        if self.__answer_a.is_true_answer:
-            return "A"
-        elif self.__answer_b.is_true_answer:
-            return "B"
-        elif self.__answer_c.is_true_answer:
-            return "C"
-        else:
-            return "D"
-
-    def solution(self, solution: str):
-        """This method is used to enter detailed answer to the question"""
-        self.__solution = solution
-
-    def get_solution(self) -> str:
-        return self.__solution
+    def print_solution_latex(self) -> str:
+        """Generate latex code to print question and solution"""
+        return jinja_env.get_template("mcqsolution.tex").render(
+            question=self.print_question_latex(),
+            solution=self.solution
+        )

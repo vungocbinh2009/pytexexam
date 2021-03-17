@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='pytexexam',
-    version='1.4.3',
+    version='2.0.0',
     packages=['pytexexam'],
     include_package_data=True,
     url='https://github.com/vungocbinh2009/pytexexam',
@@ -16,5 +16,4 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=['jinja2'],
-
 )
