@@ -41,9 +41,15 @@ builder.create_answer("answer1")
 builder.create_solution("solution1")
 ```
 
-## All package API.
-If you want to see all the functions included in this library, you can find the pytexexam.pdf
- file in the docs directory
+## Note.
+If you use Pycharm, you can enable language injection to get Latex support inside Python script
+1. Install TeXiFy IDEA.
+2. Go to Settings -> Editor -> Language Injection and add new rule:
+   - Language ID: Latex (.tex) sources files
+   - Places patterns: + pyLiteralExpression()
+3. Enable it!. Now you get Latex syntax hightlighting inside python string! Yayyy!
+   
+(You can also add other pattern, using method in this file: https://github.com/JetBrains/intellij-community/blob/master/python/src/com/jetbrains/python/patterns/PythonPatterns.java)
 ## Contribution.
 Contribution are welcome. Create a pull request.
 ## Buy me a coffee.
