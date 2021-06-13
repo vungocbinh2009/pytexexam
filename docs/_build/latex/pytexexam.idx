@@ -1,28 +1,37 @@
-\indexentry{Answer (class in pytexexam.answer)@\spxentry{Answer}\spxextra{class in pytexexam.answer}|hyperpage}{1}
-\indexentry{module@\spxentry{module}!pytexexam.question@\spxentry{pytexexam.question}|hyperpage}{1}
-\indexentry{pytexexam.question@\spxentry{pytexexam.question}!module@\spxentry{module}|hyperpage}{1}
-\indexentry{Question (class in pytexexam.question)@\spxentry{Question}\spxextra{class in pytexexam.question}|hyperpage}{1}
-\indexentry{answer\_column (pytexexam.question.Question attribute)@\spxentry{answer\_column}\spxextra{pytexexam.question.Question attribute}|hyperpage}{1}
-\indexentry{answers (pytexexam.question.Question attribute)@\spxentry{answers}\spxextra{pytexexam.question.Question attribute}|hyperpage}{1}
-\indexentry{get\_true\_answer\_key() (pytexexam.question.Question method)@\spxentry{get\_true\_answer\_key()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
-\indexentry{print\_question\_latex() (pytexexam.question.Question method)@\spxentry{print\_question\_latex()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
-\indexentry{print\_solution\_latex() (pytexexam.question.Question method)@\spxentry{print\_solution\_latex()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
-\indexentry{question (pytexexam.question.Question attribute)@\spxentry{question}\spxextra{pytexexam.question.Question attribute}|hyperpage}{1}
-\indexentry{shuffle\_answer() (pytexexam.question.Question method)@\spxentry{shuffle\_answer()}\spxextra{pytexexam.question.Question method}|hyperpage}{1}
-\indexentry{solution (pytexexam.question.Question attribute)@\spxentry{solution}\spxextra{pytexexam.question.Question attribute}|hyperpage}{1}
-\indexentry{module@\spxentry{module}!pytexexam.exam@\spxentry{pytexexam.exam}|hyperpage}{1}
-\indexentry{pytexexam.exam@\spxentry{pytexexam.exam}!module@\spxentry{module}|hyperpage}{1}
-\indexentry{Exam (class in pytexexam.exam)@\spxentry{Exam}\spxextra{class in pytexexam.exam}|hyperpage}{1}
-\indexentry{question\_list (pytexexam.exam.Exam attribute)@\spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}|hyperpage}{1}
-\indexentry{shuffle\_question() (pytexexam.exam.Exam method)@\spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}|hyperpage}{1}
-\indexentry{module@\spxentry{module}!pytexexam.latexexam@\spxentry{pytexexam.latexexam}|hyperpage}{1}
-\indexentry{pytexexam.latexexam@\spxentry{pytexexam.latexexam}!module@\spxentry{module}|hyperpage}{1}
-\indexentry{LatexExamAnswer (class in pytexexam.latexexam)@\spxentry{LatexExamAnswer}\spxextra{class in pytexexam.latexexam}|hyperpage}{1}
-\indexentry{get\_latex\_string() (pytexexam.latexexam.LatexExamAnswer method)@\spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamAnswer method}|hyperpage}{1}
-\indexentry{LatexExamPaper (class in pytexexam.latexexam)@\spxentry{LatexExamPaper}\spxextra{class in pytexexam.latexexam}|hyperpage}{1}
-\indexentry{get\_latex\_string() (pytexexam.latexexam.LatexExamPaper method)@\spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamPaper method}|hyperpage}{1}
-\indexentry{LatexExamSolution (class in pytexexam.latexexam)@\spxentry{LatexExamSolution}\spxextra{class in pytexexam.latexexam}|hyperpage}{2}
-\indexentry{get\_latex\_string() (pytexexam.latexexam.LatexExamSolution method)@\spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamSolution method}|hyperpage}{2}
+\indexentry{module@\spxentry{module}!pytexexam.builder@\spxentry{pytexexam.builder}|hyperpage}{1}
+\indexentry{pytexexam.builder@\spxentry{pytexexam.builder}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{ExamExportType (class in pytexexam.builder)@\spxentry{ExamExportType}\spxextra{class in pytexexam.builder}|hyperpage}{1}
+\indexentry{LatexExamBuilder (class in pytexexam.builder)@\spxentry{LatexExamBuilder}\spxextra{class in pytexexam.builder}|hyperpage}{1}
+\indexentry{add\_question() (pytexexam.builder.LatexExamBuilder method)@\spxentry{add\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}|hyperpage}{1}
+\indexentry{create\_answer() (pytexexam.builder.LatexExamBuilder method)@\spxentry{create\_answer()}\spxextra{pytexexam.builder.LatexExamBuilder method}|hyperpage}{1}
+\indexentry{create\_exam() (pytexexam.builder.LatexExamBuilder method)@\spxentry{create\_exam()}\spxextra{pytexexam.builder.LatexExamBuilder method}|hyperpage}{1}
+\indexentry{create\_solution() (pytexexam.builder.LatexExamBuilder method)@\spxentry{create\_solution()}\spxextra{pytexexam.builder.LatexExamBuilder method}|hyperpage}{1}
+\indexentry{shuffle\_all\_question() (pytexexam.builder.LatexExamBuilder method)@\spxentry{shuffle\_all\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}|hyperpage}{1}
+\indexentry{shuffle\_answer() (pytexexam.builder.LatexExamBuilder method)@\spxentry{shuffle\_answer()}\spxextra{pytexexam.builder.LatexExamBuilder method}|hyperpage}{1}
+\indexentry{shuffle\_question() (pytexexam.builder.LatexExamBuilder method)@\spxentry{shuffle\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}|hyperpage}{1}
 \indexentry{module@\spxentry{module}!pytexexam.latexexamutil@\spxentry{pytexexam.latexexamutil}|hyperpage}{3}
 \indexentry{pytexexam.latexexamutil@\spxentry{pytexexam.latexexamutil}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{add\_multiple\_package() (in module pytexexam.latexexamutil)@\spxentry{add\_multiple\_package()}\spxextra{in module pytexexam.latexexamutil}|hyperpage}{3}
 \indexentry{ams\_math\_package() (in module pytexexam.latexexamutil)@\spxentry{ams\_math\_package()}\spxextra{in module pytexexam.latexexamutil}|hyperpage}{3}
+\indexentry{bold\_title() (in module pytexexam.latexexamutil)@\spxentry{bold\_title()}\spxextra{in module pytexexam.latexexamutil}|hyperpage}{3}
+\indexentry{geometry\_package() (in module pytexexam.latexexamutil)@\spxentry{geometry\_package()}\spxextra{in module pytexexam.latexexamutil}|hyperpage}{3}
+\indexentry{two\_column\_header() (in module pytexexam.latexexamutil)@\spxentry{two\_column\_header()}\spxextra{in module pytexexam.latexexamutil}|hyperpage}{3}
+\indexentry{module@\spxentry{module}!pytexexam.answer@\spxentry{pytexexam.answer}|hyperpage}{5}
+\indexentry{pytexexam.answer@\spxentry{pytexexam.answer}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{Answer (class in pytexexam.answer)@\spxentry{Answer}\spxextra{class in pytexexam.answer}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!pytexexam.exam@\spxentry{pytexexam.exam}|hyperpage}{5}
+\indexentry{pytexexam.exam@\spxentry{pytexexam.exam}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{Exam (class in pytexexam.exam)@\spxentry{Exam}\spxextra{class in pytexexam.exam}|hyperpage}{5}
+\indexentry{question\_list (pytexexam.exam.Exam attribute)@\spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}|hyperpage}{5}
+\indexentry{shuffle\_question() (pytexexam.exam.Exam method)@\spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!pytexexam.question@\spxentry{pytexexam.question}|hyperpage}{5}
+\indexentry{pytexexam.question@\spxentry{pytexexam.question}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{Question (class in pytexexam.question)@\spxentry{Question}\spxextra{class in pytexexam.question}|hyperpage}{5}
+\indexentry{answer\_column (pytexexam.question.Question attribute)@\spxentry{answer\_column}\spxextra{pytexexam.question.Question attribute}|hyperpage}{5}
+\indexentry{answers (pytexexam.question.Question attribute)@\spxentry{answers}\spxextra{pytexexam.question.Question attribute}|hyperpage}{5}
+\indexentry{get\_true\_answer\_key() (pytexexam.question.Question method)@\spxentry{get\_true\_answer\_key()}\spxextra{pytexexam.question.Question method}|hyperpage}{5}
+\indexentry{print\_question\_latex() (pytexexam.question.Question method)@\spxentry{print\_question\_latex()}\spxextra{pytexexam.question.Question method}|hyperpage}{5}
+\indexentry{print\_solution\_latex() (pytexexam.question.Question method)@\spxentry{print\_solution\_latex()}\spxextra{pytexexam.question.Question method}|hyperpage}{5}
+\indexentry{question (pytexexam.question.Question attribute)@\spxentry{question}\spxextra{pytexexam.question.Question attribute}|hyperpage}{5}
+\indexentry{shuffle\_answer() (pytexexam.question.Question method)@\spxentry{shuffle\_answer()}\spxextra{pytexexam.question.Question method}|hyperpage}{5}
+\indexentry{solution (pytexexam.question.Question attribute)@\spxentry{solution}\spxextra{pytexexam.question.Question attribute}|hyperpage}{5}

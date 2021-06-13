@@ -10,18 +10,21 @@ Welcome to pytexexam's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Pytexexam main class
+Pytexexam builder class
 ===================
-.. autoclass:: pytexexam.answer.Answer
+.. automodule:: pytexexam.builder
    :members:
-.. automodule:: pytexexam.question
+
+Pytexexam util method
+===================
+.. automodule:: pytexexam.latexexamutil
+   :members:
+
+Other class
+===================
+.. automodule:: pytexexam.answer
    :members:
 .. automodule:: pytexexam.exam
    :members:
-.. automodule:: pytexexam.latexexam
-   :members:
-
-Pytexexam util class
-=====================
-.. automodule:: pytexexam.latexexamutil
+.. automodule:: pytexexam.question
    :members:

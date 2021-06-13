@@ -5,65 +5,89 @@
 \let\spxextra \sphinxstyleindexextra
 
   \bigletter A
+  \item \spxentry{add\_multiple\_package()}\spxextra{in module pytexexam.latexexamutil}, 
+		\hyperpage{3}
+  \item \spxentry{add\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}, 
+		\hyperpage{1}
   \item \spxentry{ams\_math\_package()}\spxextra{in module pytexexam.latexexamutil}, \hyperpage{3}
-  \item \spxentry{Answer}\spxextra{class in pytexexam.answer}, \hyperpage{1}
-  \item \spxentry{answer\_column}\spxextra{pytexexam.question.Question attribute}, \hyperpage{1}
-  \item \spxentry{answers}\spxextra{pytexexam.question.Question attribute}, \hyperpage{1}
+  \item \spxentry{Answer}\spxextra{class in pytexexam.answer}, \hyperpage{5}
+  \item \spxentry{answer\_column}\spxextra{pytexexam.question.Question attribute}, \hyperpage{5}
+  \item \spxentry{answers}\spxextra{pytexexam.question.Question attribute}, \hyperpage{5}
+
+  \indexspace
+  \bigletter B
+  \item \spxentry{bold\_title()}\spxextra{in module pytexexam.latexexamutil}, \hyperpage{3}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{create\_answer()}\spxextra{pytexexam.builder.LatexExamBuilder method}, 
+		\hyperpage{1}
+  \item \spxentry{create\_exam()}\spxextra{pytexexam.builder.LatexExamBuilder method}, 
+		\hyperpage{1}
+  \item \spxentry{create\_solution()}\spxextra{pytexexam.builder.LatexExamBuilder method}, 
+		\hyperpage{1}
 
   \indexspace
   \bigletter E
-  \item \spxentry{Exam}\spxextra{class in pytexexam.exam}, \hyperpage{1}
+  \item \spxentry{Exam}\spxextra{class in pytexexam.exam}, \hyperpage{5}
+  \item \spxentry{ExamExportType}\spxextra{class in pytexexam.builder}, \hyperpage{1}
 
   \indexspace
   \bigletter G
-  \item \spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamAnswer method}, 
-		\hyperpage{1}
-  \item \spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamPaper method}, 
-		\hyperpage{1}
-  \item \spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamSolution method}, 
-		\hyperpage{2}
+  \item \spxentry{geometry\_package()}\spxextra{in module pytexexam.latexexamutil}, \hyperpage{3}
   \item \spxentry{get\_true\_answer\_key()}\spxextra{pytexexam.question.Question method}, 
-		\hyperpage{1}
+		\hyperpage{5}
 
   \indexspace
   \bigletter L
-  \item \spxentry{LatexExamAnswer}\spxextra{class in pytexexam.latexexam}, \hyperpage{1}
-  \item \spxentry{LatexExamPaper}\spxextra{class in pytexexam.latexexam}, \hyperpage{1}
-  \item \spxentry{LatexExamSolution}\spxextra{class in pytexexam.latexexam}, \hyperpage{2}
+  \item \spxentry{LatexExamBuilder}\spxextra{class in pytexexam.builder}, \hyperpage{1}
 
   \indexspace
   \bigletter M
   \item \spxentry{module}
-    \subitem \spxentry{pytexexam.exam}, \hyperpage{1}
-    \subitem \spxentry{pytexexam.latexexam}, \hyperpage{1}
+    \subitem \spxentry{pytexexam.answer}, \hyperpage{5}
+    \subitem \spxentry{pytexexam.builder}, \hyperpage{1}
+    \subitem \spxentry{pytexexam.exam}, \hyperpage{5}
     \subitem \spxentry{pytexexam.latexexamutil}, \hyperpage{3}
-    \subitem \spxentry{pytexexam.question}, \hyperpage{1}
+    \subitem \spxentry{pytexexam.question}, \hyperpage{5}
 
   \indexspace
   \bigletter P
   \item \spxentry{print\_question\_latex()}\spxextra{pytexexam.question.Question method}, 
-		\hyperpage{1}
+		\hyperpage{5}
   \item \spxentry{print\_solution\_latex()}\spxextra{pytexexam.question.Question method}, 
-		\hyperpage{1}
+		\hyperpage{5}
+  \item \spxentry{pytexexam.answer}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{pytexexam.builder}
+    \subitem \spxentry{module}, \hyperpage{1}
   \item \spxentry{pytexexam.exam}
-    \subitem \spxentry{module}, \hyperpage{1}
-  \item \spxentry{pytexexam.latexexam}
-    \subitem \spxentry{module}, \hyperpage{1}
+    \subitem \spxentry{module}, \hyperpage{5}
   \item \spxentry{pytexexam.latexexamutil}
     \subitem \spxentry{module}, \hyperpage{3}
   \item \spxentry{pytexexam.question}
-    \subitem \spxentry{module}, \hyperpage{1}
+    \subitem \spxentry{module}, \hyperpage{5}
 
   \indexspace
   \bigletter Q
-  \item \spxentry{Question}\spxextra{class in pytexexam.question}, \hyperpage{1}
-  \item \spxentry{question}\spxextra{pytexexam.question.Question attribute}, \hyperpage{1}
-  \item \spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}, \hyperpage{1}
+  \item \spxentry{Question}\spxextra{class in pytexexam.question}, \hyperpage{5}
+  \item \spxentry{question}\spxextra{pytexexam.question.Question attribute}, \hyperpage{5}
+  \item \spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}, \hyperpage{5}
 
   \indexspace
   \bigletter S
-  \item \spxentry{shuffle\_answer()}\spxextra{pytexexam.question.Question method}, \hyperpage{1}
-  \item \spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}, \hyperpage{1}
-  \item \spxentry{solution}\spxextra{pytexexam.question.Question attribute}, \hyperpage{1}
+  \item \spxentry{shuffle\_all\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}, 
+		\hyperpage{1}
+  \item \spxentry{shuffle\_answer()}\spxextra{pytexexam.builder.LatexExamBuilder method}, 
+		\hyperpage{1}
+  \item \spxentry{shuffle\_answer()}\spxextra{pytexexam.question.Question method}, \hyperpage{5}
+  \item \spxentry{shuffle\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}, 
+		\hyperpage{1}
+  \item \spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}, \hyperpage{5}
+  \item \spxentry{solution}\spxextra{pytexexam.question.Question attribute}, \hyperpage{5}
+
+  \indexspace
+  \bigletter T
+  \item \spxentry{two\_column\_header()}\spxextra{in module pytexexam.latexexamutil}, \hyperpage{3}
 
 \end{sphinxtheindex}

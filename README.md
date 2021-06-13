@@ -41,6 +41,9 @@ builder.create_answer("answer1")
 builder.create_solution("solution1")
 ```
 
+## Documentation
+If you want to see all the functions included in this library, you can find it [here](docs/_build/latex/pytexexam.pdf)
+
 ## Note.
 If you use Pycharm, you can enable language injection to get Latex support inside Python script
 1. Install TeXiFy IDEA.

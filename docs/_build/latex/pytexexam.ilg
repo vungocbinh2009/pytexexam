@@ -1,7 +1,7 @@
 This is makeindex, version 2.15 [TeX Live 2019] (kpathsea + Thai support).
 Scanning style file ./python.ist.......done (7 attributes redefined, 0 ignored).
-Scanning input file pytexexam.idx....done (28 entries accepted, 0 rejected).
-Sorting entries....done (163 comparisons).
-Generating output file pytexexam.ind....done (69 lines written, 0 warnings).
+Scanning input file pytexexam.idx....done (37 entries accepted, 0 rejected).
+Sorting entries....done (211 comparisons).
+Generating output file pytexexam.ind....done (93 lines written, 0 warnings).
 Output written in pytexexam.ind.
 Transcript written in pytexexam.ilg.

@@ -74,8 +74,8 @@
 
 
 \title{pytexexam}
-\date{Mar 17, 2021}
-\release{1.3}
+\date{Jun 13, 2021}
+\release{2.1.0}
 \author{Vu Ngoc Binh}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -91,13 +91,267 @@
 
 
 
-\chapter{Pytexexam main class}
-\label{\detokenize{index:pytexexam-main-class}}\index{Answer (class in pytexexam.answer)@\spxentry{Answer}\spxextra{class in pytexexam.answer}}
+\chapter{Pytexexam builder class}
+\label{\detokenize{index:pytexexam-builder-class}}\phantomsection\label{\detokenize{index:module-pytexexam.builder}}\index{module@\spxentry{module}!pytexexam.builder@\spxentry{pytexexam.builder}}\index{pytexexam.builder@\spxentry{pytexexam.builder}!module@\spxentry{module}}\index{ExamExportType (class in pytexexam.builder)@\spxentry{ExamExportType}\spxextra{class in pytexexam.builder}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.ExamExportType}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.builder.}}\sphinxbfcode{\sphinxupquote{ExamExportType}}}{\emph{\DUrole{n}{value}}}{}
+\sphinxAtStartPar
+Class present all export exam options: PDF and TEX
+
+\end{fulllineitems}
+
+\index{LatexExamBuilder (class in pytexexam.builder)@\spxentry{LatexExamBuilder}\spxextra{class in pytexexam.builder}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder}}\pysigline{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.builder.}}\sphinxbfcode{\sphinxupquote{LatexExamBuilder}}}
+\sphinxAtStartPar
+Builder class to create exam,answer and solution paper
+\index{add\_question() (pytexexam.builder.LatexExamBuilder method)@\spxentry{add\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder.add_question}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{add\_question}}}{\emph{\DUrole{n}{question}\DUrole{p}{:} \DUrole{n}{str}}, \emph{\DUrole{n}{answer}\DUrole{p}{:} \DUrole{n}{List\DUrole{p}{{[}}str\DUrole{p}{{]}}}}, \emph{\DUrole{n}{true\_answer}\DUrole{p}{:} \DUrole{n}{str}}, \emph{\DUrole{n}{answer\_column}\DUrole{p}{:} \DUrole{n}{int}}, \emph{\DUrole{n}{solution}\DUrole{p}{:} \DUrole{n}{str} \DUrole{o}{=} \DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
+\sphinxAtStartPar
+Add question to exam
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{question}} \textendash{} question stem
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{answer}} \textendash{} List of answers in order A, B, C, D
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{true\_answer}} \textendash{} Answer key of true answer.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{answer\_column}} \textendash{} Number of columns used to present the answer
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{solution}} \textendash{} Solution for this question
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{create\_answer() (pytexexam.builder.LatexExamBuilder method)@\spxentry{create\_answer()}\spxextra{pytexexam.builder.LatexExamBuilder method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder.create_answer}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_answer}}}{\emph{\DUrole{n}{file\_dir}\DUrole{p}{:} \DUrole{n}{str}}}{}
+\sphinxAtStartPar
+Create answer key paper
+
+\end{fulllineitems}
+
+\index{create\_exam() (pytexexam.builder.LatexExamBuilder method)@\spxentry{create\_exam()}\spxextra{pytexexam.builder.LatexExamBuilder method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder.create_exam}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_exam}}}{\emph{\DUrole{n}{file\_dir}\DUrole{p}{:} \DUrole{n}{str}}}{}
+\sphinxAtStartPar
+Create exam paper
+
+\end{fulllineitems}
+
+\index{create\_solution() (pytexexam.builder.LatexExamBuilder method)@\spxentry{create\_solution()}\spxextra{pytexexam.builder.LatexExamBuilder method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder.create_solution}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_solution}}}{\emph{\DUrole{n}{file\_dir}\DUrole{p}{:} \DUrole{n}{str}}}{}
+\sphinxAtStartPar
+Create solution paper
+
+\end{fulllineitems}
+
+\index{shuffle\_all\_question() (pytexexam.builder.LatexExamBuilder method)@\spxentry{shuffle\_all\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder.shuffle_all_question}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{shuffle\_all\_question}}}{\emph{\DUrole{n}{seed}\DUrole{p}{:} \DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}} \DUrole{o}{=} \DUrole{default_value}{None}}}{}
+\sphinxAtStartPar
+Shuffle all question in exam
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{seed}} \textendash{} random seed
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{shuffle\_answer() (pytexexam.builder.LatexExamBuilder method)@\spxentry{shuffle\_answer()}\spxextra{pytexexam.builder.LatexExamBuilder method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder.shuffle_answer}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{shuffle\_answer}}}{\emph{\DUrole{n}{not\_shuffle}\DUrole{o}{=}\DUrole{default_value}{None}}, \emph{\DUrole{n}{seed}\DUrole{p}{:} \DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}} \DUrole{o}{=} \DUrole{default_value}{None}}}{}
+\sphinxAtStartPar
+Shuffle question answer
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{not\_shuffle}} \textendash{} Index list of questions that do not shuffle answers
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{seed}} \textendash{} random seed
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{shuffle\_question() (pytexexam.builder.LatexExamBuilder method)@\spxentry{shuffle\_question()}\spxextra{pytexexam.builder.LatexExamBuilder method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.builder.LatexExamBuilder.shuffle_question}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{shuffle\_question}}}{\emph{\DUrole{n}{start\_index}\DUrole{p}{:} \DUrole{n}{int}}, \emph{\DUrole{n}{end\_index}\DUrole{p}{:} \DUrole{n}{int}}, \emph{\DUrole{n}{seed}\DUrole{p}{:} \DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}} \DUrole{o}{=} \DUrole{default_value}{None}}}{}
+\sphinxAtStartPar
+shuffle question from start\_index to end\_index
+
+\end{fulllineitems}
+
+
+\end{fulllineitems}
+
+
+
+\chapter{Pytexexam util method}
+\label{\detokenize{index:pytexexam-util-method}}\phantomsection\label{\detokenize{index:module-pytexexam.latexexamutil}}\index{module@\spxentry{module}!pytexexam.latexexamutil@\spxentry{pytexexam.latexexamutil}}\index{pytexexam.latexexamutil@\spxentry{pytexexam.latexexamutil}!module@\spxentry{module}}\index{add\_multiple\_package() (in module pytexexam.latexexamutil)@\spxentry{add\_multiple\_package()}\spxextra{in module pytexexam.latexexamutil}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.latexexamutil.add_multiple_package}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{pytexexam.latexexamutil.}}\sphinxbfcode{\sphinxupquote{add\_multiple\_package}}}{\emph{\DUrole{n}{package\_list}\DUrole{p}{:} \DUrole{n}{List\DUrole{p}{{[}}str\DUrole{p}{{]}}}}}{{ $\rightarrow$ str}}
+\sphinxAtStartPar
+Generate latex code to add multiple package to preamble
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{package\_list}} \textendash{} List of package to add in preamble
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{ams\_math\_package() (in module pytexexam.latexexamutil)@\spxentry{ams\_math\_package()}\spxextra{in module pytexexam.latexexamutil}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.latexexamutil.ams_math_package}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{pytexexam.latexexamutil.}}\sphinxbfcode{\sphinxupquote{ams\_math\_package}}}{}{{ $\rightarrow$ str}}
+\sphinxAtStartPar
+Returns the code needed to add in preamble to type math formula in latex
+
+\end{fulllineitems}
+
+\index{bold\_title() (in module pytexexam.latexexamutil)@\spxentry{bold\_title()}\spxextra{in module pytexexam.latexexamutil}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.latexexamutil.bold_title}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{pytexexam.latexexamutil.}}\sphinxbfcode{\sphinxupquote{bold\_title}}}{\emph{\DUrole{n}{text}\DUrole{p}{:} \DUrole{n}{str}}}{{ $\rightarrow$ str}}
+\sphinxAtStartPar
+Create bold title in exam header
+\begin{quote}\begin{description}
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+latex code
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{geometry\_package() (in module pytexexam.latexexamutil)@\spxentry{geometry\_package()}\spxextra{in module pytexexam.latexexamutil}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.latexexamutil.geometry_package}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{pytexexam.latexexamutil.}}\sphinxbfcode{\sphinxupquote{geometry\_package}}}{\emph{\DUrole{n}{top}\DUrole{p}{:} \DUrole{n}{float}}, \emph{\DUrole{n}{bottom}\DUrole{p}{:} \DUrole{n}{float}}, \emph{\DUrole{n}{left}\DUrole{p}{:} \DUrole{n}{float}}, \emph{\DUrole{n}{right}\DUrole{p}{:} \DUrole{n}{float}}}{{ $\rightarrow$ str}}
+\sphinxAtStartPar
+Generate latex code to add geometry package
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{top}} \textendash{} top margin
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{bottom}} \textendash{} bottom margin
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{left}} \textendash{} left margin
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{right}} \textendash{} right margin
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{two\_column\_header() (in module pytexexam.latexexamutil)@\spxentry{two\_column\_header()}\spxextra{in module pytexexam.latexexamutil}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.latexexamutil.two_column_header}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{pytexexam.latexexamutil.}}\sphinxbfcode{\sphinxupquote{two\_column\_header}}}{\emph{\DUrole{n}{left}\DUrole{p}{:} \DUrole{n}{str}}, \emph{\DUrole{n}{right}\DUrole{p}{:} \DUrole{n}{str}}}{{ $\rightarrow$ str}}
+\sphinxAtStartPar
+Create exam header with two column
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{left}} \textendash{} left text
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{right}} \textendash{} right text
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\sphinxAtStartPar
+Latex code
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\chapter{Other class}
+\label{\detokenize{index:module-pytexexam.answer}}\label{\detokenize{index:other-class}}\index{module@\spxentry{module}!pytexexam.answer@\spxentry{pytexexam.answer}}\index{pytexexam.answer@\spxentry{pytexexam.answer}!module@\spxentry{module}}\index{Answer (class in pytexexam.answer)@\spxentry{Answer}\spxextra{class in pytexexam.answer}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{index:pytexexam.answer.Answer}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.answer.}}\sphinxbfcode{\sphinxupquote{Answer}}}{\emph{\DUrole{n}{answer\_key}\DUrole{p}{:} \DUrole{n}{str}}, \emph{\DUrole{n}{answer}\DUrole{p}{:} \DUrole{n}{str}}, \emph{\DUrole{n}{is\_true\_answer}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \sphinxAtStartPar
 This class is used to store 1 answer in a question.
+
+\end{fulllineitems}
+
+\phantomsection\label{\detokenize{index:module-pytexexam.exam}}\index{module@\spxentry{module}!pytexexam.exam@\spxentry{pytexexam.exam}}\index{pytexexam.exam@\spxentry{pytexexam.exam}!module@\spxentry{module}}\index{Exam (class in pytexexam.exam)@\spxentry{Exam}\spxextra{class in pytexexam.exam}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.exam.Exam}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.exam.}}\sphinxbfcode{\sphinxupquote{Exam}}}{\emph{\DUrole{n}{question\_list}\DUrole{p}{:} \DUrole{n}{List\DUrole{p}{{[}}question.Question\DUrole{p}{{]}}}}}{}
+\sphinxAtStartPar
+This class represents an exam.
+\index{question\_list (pytexexam.exam.Exam attribute)@\spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.exam.Exam.question_list}}\pysigline{\sphinxbfcode{\sphinxupquote{question\_list}}}
+\sphinxAtStartPar
+List of questions in the exam
+
+\end{fulllineitems}
+
+\index{shuffle\_question() (pytexexam.exam.Exam method)@\spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{index:pytexexam.exam.Exam.shuffle_question}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{shuffle\_question}}}{\emph{\DUrole{n}{seed}\DUrole{p}{:} \DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}} \DUrole{o}{=} \DUrole{default_value}{None}}}{}
+\sphinxAtStartPar
+This method allows to shuffle all the questions in the exam.
+:param seed: random seed
+
+\end{fulllineitems}
+
 
 \end{fulllineitems}
 
@@ -182,107 +436,15 @@ Solution of the question
 
 \end{fulllineitems}
 
-\phantomsection\label{\detokenize{index:module-pytexexam.exam}}\index{module@\spxentry{module}!pytexexam.exam@\spxentry{pytexexam.exam}}\index{pytexexam.exam@\spxentry{pytexexam.exam}!module@\spxentry{module}}\index{Exam (class in pytexexam.exam)@\spxentry{Exam}\spxextra{class in pytexexam.exam}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.exam.Exam}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.exam.}}\sphinxbfcode{\sphinxupquote{Exam}}}{\emph{\DUrole{n}{question\_list}\DUrole{p}{:} \DUrole{n}{List\DUrole{p}{{[}}question.Question\DUrole{p}{{]}}}}}{}
-\sphinxAtStartPar
-This class represents an exam.
-\index{question\_list (pytexexam.exam.Exam attribute)@\spxentry{question\_list}\spxextra{pytexexam.exam.Exam attribute}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.exam.Exam.question_list}}\pysigline{\sphinxbfcode{\sphinxupquote{question\_list}}}
-\sphinxAtStartPar
-List of questions in the exam
-
-\end{fulllineitems}
-
-\index{shuffle\_question() (pytexexam.exam.Exam method)@\spxentry{shuffle\_question()}\spxextra{pytexexam.exam.Exam method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.exam.Exam.shuffle_question}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{shuffle\_question}}}{}{}
-\sphinxAtStartPar
-This method allows to shuffle all the questions in the exam.
-
-\end{fulllineitems}
-
-
-\end{fulllineitems}
-
-\phantomsection\label{\detokenize{index:module-pytexexam.latexexam}}\index{module@\spxentry{module}!pytexexam.latexexam@\spxentry{pytexexam.latexexam}}\index{pytexexam.latexexam@\spxentry{pytexexam.latexexam}!module@\spxentry{module}}\index{LatexExamAnswer (class in pytexexam.latexexam)@\spxentry{LatexExamAnswer}\spxextra{class in pytexexam.latexexam}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.latexexam.LatexExamAnswer}}\pysigline{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.latexexam.}}\sphinxbfcode{\sphinxupquote{LatexExamAnswer}}}
-\sphinxAtStartPar
-This class is used to create an answer keys
-\index{get\_latex\_string() (pytexexam.latexexam.LatexExamAnswer method)@\spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamAnswer method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.latexexam.LatexExamAnswer.get_latex_string}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_latex\_string}}}{}{{ $\rightarrow$ str}}
-\sphinxAtStartPar
-Generate latex code
-
-\end{fulllineitems}
-
-
-\end{fulllineitems}
-
-\index{LatexExamPaper (class in pytexexam.latexexam)@\spxentry{LatexExamPaper}\spxextra{class in pytexexam.latexexam}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.latexexam.LatexExamPaper}}\pysigline{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.latexexam.}}\sphinxbfcode{\sphinxupquote{LatexExamPaper}}}
-\sphinxAtStartPar
-This class is used to create an exam paper
-\index{get\_latex\_string() (pytexexam.latexexam.LatexExamPaper method)@\spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamPaper method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.latexexam.LatexExamPaper.get_latex_string}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_latex\_string}}}{}{{ $\rightarrow$ str}}
-\sphinxAtStartPar
-Generate latex code
-
-\end{fulllineitems}
-
-
-\end{fulllineitems}
-
-\index{LatexExamSolution (class in pytexexam.latexexam)@\spxentry{LatexExamSolution}\spxextra{class in pytexexam.latexexam}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.latexexam.LatexExamSolution}}\pysigline{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{pytexexam.latexexam.}}\sphinxbfcode{\sphinxupquote{LatexExamSolution}}}
-\sphinxAtStartPar
-Generate solution paper for this exam
-\index{get\_latex\_string() (pytexexam.latexexam.LatexExamSolution method)@\spxentry{get\_latex\_string()}\spxextra{pytexexam.latexexam.LatexExamSolution method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.latexexam.LatexExamSolution.get_latex_string}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_latex\_string}}}{}{{ $\rightarrow$ str}}
-\sphinxAtStartPar
-Generate latex code
-
-\end{fulllineitems}
-
-
-\end{fulllineitems}
-
-
-
-\chapter{Pytexexam util class}
-\label{\detokenize{index:module-pytexexam.latexexamutil}}\label{\detokenize{index:pytexexam-util-class}}\index{module@\spxentry{module}!pytexexam.latexexamutil@\spxentry{pytexexam.latexexamutil}}\index{pytexexam.latexexamutil@\spxentry{pytexexam.latexexamutil}!module@\spxentry{module}}\index{ams\_math\_package() (in module pytexexam.latexexamutil)@\spxentry{ams\_math\_package()}\spxextra{in module pytexexam.latexexamutil}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{index:pytexexam.latexexamutil.ams_math_package}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{pytexexam.latexexamutil.}}\sphinxbfcode{\sphinxupquote{ams\_math\_package}}}{}{{ $\rightarrow$ str}}
-\sphinxAtStartPar
-Returns the code needed to add in preamble to type math formula in latex
-
-\end{fulllineitems}
-
 
 
 \renewcommand{\indexname}{Python Module Index}
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
 \bigletter{p}
+\item\relax\sphinxstyleindexentry{pytexexam.answer}\sphinxstyleindexpageref{index:\detokenize{module-pytexexam.answer}}
+\item\relax\sphinxstyleindexentry{pytexexam.builder}\sphinxstyleindexpageref{index:\detokenize{module-pytexexam.builder}}
 \item\relax\sphinxstyleindexentry{pytexexam.exam}\sphinxstyleindexpageref{index:\detokenize{module-pytexexam.exam}}
-\item\relax\sphinxstyleindexentry{pytexexam.latexexam}\sphinxstyleindexpageref{index:\detokenize{module-pytexexam.latexexam}}
 \item\relax\sphinxstyleindexentry{pytexexam.latexexamutil}\sphinxstyleindexpageref{index:\detokenize{module-pytexexam.latexexamutil}}
 \item\relax\sphinxstyleindexentry{pytexexam.question}\sphinxstyleindexpageref{index:\detokenize{module-pytexexam.question}}
 \end{sphinxtheindex}

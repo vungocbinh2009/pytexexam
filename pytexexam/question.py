@@ -57,15 +57,13 @@ class Question:
 
     def print_question_latex(self) -> str:
         """generate latex code for this question"""
-        table_column = ""
-        for i in range(0, self.answer_column):
-            column_size = 1 / self.answer_column
-            table_column += f"S{{m{{ {column_size}\\linewidth }} }} "
+        column_size = 1 / self.answer_column
+        table_column = rf"*{{{self.answer_column}}}{{S{{m{{\dimexpr{column_size}\linewidth-2\tabcolsep\relax}}}}}}"
 
         answer_string = ""
         for i, answer in enumerate(self.answers):
             seperator = "\\\\\n" if((i+1) % self.answer_column == 0) else "&"
-            answer_string += f"\\textbf{{ {answer.answer_key} }}. {answer.answer} {seperator} "
+            answer_string += f"\\textbf{{{answer.answer_key}}}. {answer.answer}. {seperator} "
 
         return jinja_env.get_template("mcq.tex").render(
             question=self.question,
