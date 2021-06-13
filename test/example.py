@@ -3,8 +3,11 @@ from pytexexam import LatexExamBuilder, ExamExportType
 
 
 builder = LatexExamBuilder()
-builder.preamble = util.ams_math_package()
-builder.header = "This is a simple header"
+builder.preamble = f"""
+    {util.ams_math_package()}
+    {util.geometry_package(top=2, bottom=2, left=3, right=2)}
+"""
+builder.header = util.bold_title("Exam title")
 builder.footer = "This is a simple footer"
 builder.export_type = ExamExportType.PDF
 builder.add_question(

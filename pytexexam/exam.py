@@ -1,4 +1,4 @@
-from random import SystemRandom
+import random
 from typing import List
 
 from question import Question
@@ -12,8 +12,11 @@ class Exam:
         self.question_list = question_list
         """List of questions in the exam"""
 
-    def shuffle_question(self):
+    def shuffle_question(self, seed: int = None):
         """
         This method allows to shuffle all the questions in the exam.
+        :param seed: random seed
         """
-        SystemRandom().shuffle(self.question_list)
+        if seed is not None:
+            random.seed(seed)
+        random.shuffle(self.question_list)
