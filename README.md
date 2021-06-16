@@ -1,6 +1,7 @@
 # pytexexam
 
 A simple library for writing and printing exam in Python.
+
 [![Downloads](https://pepy.tech/badge/pytexexam)](https://pepy.tech/project/pytexexam)
 [![Downloads](https://pepy.tech/badge/pytexexam/month)](https://pepy.tech/project/pytexexam)
 [![Downloads](https://pepy.tech/badge/pytexexam/week)](https://pepy.tech/project/pytexexam)
