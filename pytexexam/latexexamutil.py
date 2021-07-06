@@ -10,7 +10,6 @@ def ams_math_package() -> str:
     \usepackage{amsmath}
     \usepackage{amsfonts}
     \usepackage{amssymb}
-    
     """)
 
 
@@ -26,7 +25,6 @@ def two_column_header(left: str, right: str) -> str:
     \begin{{tabular}}{{ *{{2}}{{ p{{ \dimexpr0.5\linewidth-2\tabcolsep\relax }} }} }}
     {left} & {right}
     \end{{tabular}}
-    
     """)
 
 
@@ -40,7 +38,6 @@ def bold_title(text: str) -> str:
     \begin{{center}}
     \textbf {{ {{\Large {text} }} }}
     \end{{center}}
-    
     """)
 
 
@@ -53,10 +50,9 @@ def geometry_package(top: float, bottom: float, left: float, right: float) -> st
     :param left: left margin
     :param right: right margin
     """
-    return rf"""
+    return inspect.cleandoc(rf"""
         \usepackage[left = {left}cm, right = {right}cm, top = {top}cm, bottom = {bottom}cm]{{geometry}}
-        
-    """
+    """)
 
 
 def add_multiple_package(package_list: List[str]) -> str:
@@ -69,4 +65,4 @@ def add_multiple_package(package_list: List[str]) -> str:
     for package in package_list:
         usepackage_command_list.append(rf"""\usepackage{{{package}}}""")
 
-    return "\n".join(usepackage_command_list) + "\n"
+    return "\n".join(usepackage_command_list)
