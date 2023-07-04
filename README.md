@@ -61,9 +61,8 @@ If you use Pycharm, you can enable language injection to get Latex support insid
 ## Contribution.
 Contribution are welcome. Create a pull request.
 ## Buy me a coffee.
-If you find this project useful, you can buy me coffee through Flattr [![Flattr this
- git
- repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/@vungocbinh)
+If you find this project useful, you can buy me coffee through Buy me a coffee
 
+<a href="https://www.buymeacoffee.com/vungocbinh" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 ## License
 Apache License, Version 2.0
