@@ -1,1 +1,1 @@
-from builder import LatexExamBuilder, ExamExportType
+from .builder import LatexExamBuilder, ExamExportType
