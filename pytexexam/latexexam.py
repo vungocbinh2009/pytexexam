@@ -1,6 +1,6 @@
 from typing import List
 
-from jinja2env import jinja_env
+from pytexexam.jinja2env import jinja_env
 from pytexexam.latexpaper import LatexPaper
 from pytexexam.question import Question
 

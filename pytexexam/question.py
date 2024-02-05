@@ -2,7 +2,7 @@ import string
 from random import SystemRandom
 
 from pytexexam.answer import Answer
-from jinja2env import jinja_env
+from pytexexam.jinja2env import jinja_env
 from typing import List
 
 
