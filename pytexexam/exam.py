@@ -1,7 +1,7 @@
 import random
 from typing import List
 
-from question import Question
+from pytexexam.question import Question
 
 
 class Exam:

@@ -1,9 +1,9 @@
 from enum import Enum
 from typing import List
 
-from latexexam import LatexExamPaper, LatexExamAnswer, LatexExamSolution
-from latexpaper import LatexPaper
-from question import Question
+from pytexexam.latexexam import LatexExamPaper, LatexExamAnswer, LatexExamSolution
+from pytexexam.latexpaper import LatexPaper
+from pytexexam.question import Question
 import random
 
 

@@ -1,8 +1,8 @@
 from typing import List
 
 from jinja2env import jinja_env
-from latexpaper import LatexPaper
-from question import Question
+from pytexexam.latexpaper import LatexPaper
+from pytexexam.question import Question
 
 
 class LatexExamPaper(LatexPaper):

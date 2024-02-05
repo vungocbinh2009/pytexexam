@@ -1,1 +1,2 @@
-from .builder import LatexExamBuilder, ExamExportType
+from pytexexam.builder import LatexExamBuilder, ExamExportType
+import pytexexam.latexexamutil
