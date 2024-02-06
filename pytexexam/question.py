@@ -1,3 +1,4 @@
+import random
 import string
 from random import SystemRandom
 
@@ -45,7 +46,12 @@ class Question:
 
     def shuffle_answer(self):
         """Shuffle answer list"""
-        SystemRandom().shuffle(self.answers)
+        num_answer = len(self.answers)
+        answer_key = self.__get_answer_key()[0:num_answer]
+        random.shuffle(answer_key)
+        for i in range(num_answer):
+            self.answers[i].answer_key = answer_key[i]
+        self.answers = sorted(self.answers, key=lambda x: x.answer_key)
 
     def get_true_answer_key(self) -> str:
         """Get answer key of true answer"""

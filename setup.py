@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='pytexexam',
-    version='2.1.4',
+    version='2.1.7',
     packages=['pytexexam'],
     include_package_data=True,
     url='https://github.com/vungocbinh2009/pytexexam',

@@ -13,6 +13,7 @@ class LatexExamBuilder:
         self.preamble = ""
         self.header = ""
         self.questions: List[Question] = list()
+        self.question_translation = "Question"
         self.footer = ""
         self.export_type: ExamExportType = ExamExportType.TEX
 
@@ -20,6 +21,7 @@ class LatexExamBuilder:
         """Create exam paper"""
         exam = LatexExamPaper()
         exam.preamble = self.preamble
+        exam.question_translation = self.question_translation
         exam.header = self.header
         exam.questions = self.questions
         exam.footer = self.footer
@@ -29,6 +31,7 @@ class LatexExamBuilder:
         """Create answer key paper"""
         exam = LatexExamAnswer()
         exam.preamble = self.preamble
+        exam.question_translation = self.question_translation
         exam.header = self.header
         exam.questions = self.questions
         exam.footer = self.footer
@@ -38,6 +41,7 @@ class LatexExamBuilder:
         """Create solution paper"""
         exam = LatexExamSolution()
         exam.preamble = self.preamble
+        exam.question_translation = self.question_translation
         exam.header = self.header
         exam.questions = self.questions
         exam.footer = self.footer

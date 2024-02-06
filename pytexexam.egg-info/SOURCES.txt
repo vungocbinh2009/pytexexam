@@ -10,6 +10,7 @@ pytexexam/jinja2env.py
 pytexexam/latexexam.py
 pytexexam/latexexamutil.py
 pytexexam/latexpaper.py
+pytexexam/open_question.py
 pytexexam/question.py
 pytexexam.egg-info/PKG-INFO
 pytexexam.egg-info/SOURCES.txt
