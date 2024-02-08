@@ -14,7 +14,7 @@ The project is not complete yet.
 
 Install from github, using pip (for testing only)
 ```shell
-pip install git+https://github.com/vungocbinh2009/pytexexam.git@master#egg=pytexexam
+pip install git+https://github.com/vungocbinh2009/pytexexam.git@pytexexam_3.x#egg=pytexexam
 ```
 
 ## Contribution.
