@@ -45,8 +45,8 @@ def add_multiple_package(package_list: list[str]) -> str:
 
     :param package_list: List of package to add in preamble
     """
-    usepackage_command_list = []
+    command_list = []
     for package in package_list:
-        usepackage_command_list.append(rf"""\usepackage{{{package}}}""")
+        command_list.append(rf"""\usepackage{{{package}}}""")
 
-    return "\n".join(usepackage_command_list)
+    return "\n".join(command_list)

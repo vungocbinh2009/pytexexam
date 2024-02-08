@@ -1,23 +1,30 @@
-import latex_util.latexexamutil as util
-from pytexexam import LatexExamBuilder, ExamExportType
+from component.mcq_question import McqQuestion
+from component.open_question import OpenQuestion
+from component.question_group import QuestionGroup
+from component.text import Text
+from pytexexam.builder.generator import ExamGenerator, ExamFileType
+from pytexexam.latex_util.preamble import add_multiple_package
 
-
-builder = LatexExamBuilder()
-builder.preamble = f"""
-    {util.ams_math_package()}
-    {util.geometry_package(top=2, bottom=2, left=3, right=2)}
-"""
-builder.header = util.bold_title("Exam title")
-builder.footer = "This is a simple footer"
-builder.export_type = ExamExportType.PDF
-builder.add_question(
-    question="This is a simple question",
-    answer=["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-    true_answer="A",
+exam = ExamGenerator()
+q1 = McqQuestion(
+    question="Đây là một câu hỏi trắc nghiệm",
+    answers=["1", "2", "3", "4"],
+    true_answer="AB",
     answer_column=4,
-    solution="This is solution for this question",
+    solution=""
 )
 
-builder.create_exam("exam1")
-builder.create_answer("answer1")
-builder.create_solution("solution1")
+q2 = OpenQuestion(
+    question="Đây là một câu hỏi mở",
+    answer="Đáp án của câu hỏi",
+    solution="Đáp án chi tiết"
+)
+
+text = Text("Phần tự luận")
+
+q_group = QuestionGroup([q1, text, q2])
+exam.add_component(q_group)
+exam.add_preamble_array([
+    r"\usepackage[utf8]{vietnam}"
+])
+exam.generate_exam("exam1", ExamFileType.PDF)

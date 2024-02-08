@@ -1,10 +1,17 @@
-class OpenQuestion:
-    def __init__(self, question: str, solution: str):
+from pytexexam.component.component import Component
+
+
+class OpenQuestion(Component):
+    def __init__(self, question: str, answer: str, solution: str):
         self.question = question
+        self.answer = answer
         self.solution = solution
 
-    def print_question_latex(self):
-        return f"{self.question}"
+    def generate_exam(self) -> str:
+        return self.question
 
-    def print_solution_latex(self):
-        return f"{self.question}\n{self.solution}"
+    def generate_answer(self) -> str:
+        return self.answer
+
+    def generate_solution(self) -> str:
+        return self.solution
