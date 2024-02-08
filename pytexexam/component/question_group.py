@@ -1,10 +1,10 @@
 import random
-from typing import List
+from typing import List, Self
 
-from pytexexam.question import Question
+from pytexexam.component.mcq_question import Question
 
 
-class Exam:
+class QuestionGroup:
     """
     This class represents an exam.
     """
@@ -20,3 +20,12 @@ class Exam:
         if seed is not None:
             random.seed(seed)
         random.shuffle(self.question_list)
+
+    def shuffle_answer(self, seed: int = None):
+        pass
+
+    def merge(self, group: Self):
+        pass
+
+    def split(self) -> Self:
+        pass

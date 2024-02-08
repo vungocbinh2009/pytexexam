@@ -1,4 +1,4 @@
-import pytexexam.latexexamutil as util
+import latex_util.latexexamutil as util
 from pytexexam import LatexExamBuilder, ExamExportType
 
 

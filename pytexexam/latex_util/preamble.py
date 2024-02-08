@@ -1,5 +1,4 @@
 import inspect
-from typing import List
 
 
 def ams_math_package() -> str:
@@ -10,21 +9,6 @@ def ams_math_package() -> str:
     \usepackage{amsmath}
     \usepackage{amsfonts}
     \usepackage{amssymb}
-    """)
-
-
-def two_column_header(left: str, right: str) -> str:
-    """
-    Create exam header with two column
-
-    :param left: left text
-    :param right: right text
-    :return: Latex code
-    """
-    return inspect.cleandoc(rf"""
-    \begin{{tabular}}{{ *{{2}}{{ p{{ \dimexpr0.5\linewidth-2\tabcolsep\relax }} }} }}
-    {left} & {right}
-    \end{{tabular}}
     """)
 
 
@@ -55,7 +39,7 @@ def geometry_package(top: float, bottom: float, left: float, right: float) -> st
     """)
 
 
-def add_multiple_package(package_list: List[str]) -> str:
+def add_multiple_package(package_list: list[str]) -> str:
     """
     Generate latex code to add multiple package to preamble
 
