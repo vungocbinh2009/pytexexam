@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  8 FEB 2024 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  9 FEB 2024 19:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -57,7 +57,20 @@ Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
 \backup@length=\skip50
 \ar@cellbox=\box51
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks18
+\thm@bodyfont=\toks19
+\thm@headfont=\toks20
+\thm@notefont=\toks21
+\thm@headpunct=\toks22
+\thm@preskip=\skip51
+\thm@postskip=\skip52
+\thm@headsep=\skip53
+\dth@everypar=\toks23
+)
 \c@question=\count193
+\c@answer=\count194
 
 (/usr/share/texlive/texmf-dist/tex/latex/cellspace/cellspace.sty
 Package: cellspace 2022/01/04 v1.9.0 Spacing table cells (JN)
@@ -67,26 +80,26 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count194
-\calc@Bcount=\count195
+\calc@Acount=\count195
+\calc@Bcount=\count196
 \calc@Adimen=\dimen143
 \calc@Bdimen=\dimen144
-\calc@Askip=\skip51
-\calc@Bskip=\skip52
+\calc@Askip=\skip54
+\calc@Bskip=\skip55
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count196
-\calc@Cskip=\skip53
+\calc@Ccount=\count197
+\calc@Cskip=\skip56
 )
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks18
-\XKV@tempa@toks=\toks19
+\XKV@toks=\toks24
+\XKV@tempa@toks=\toks25
 )
-\XKV@depth=\count197
+\XKV@depth=\count198
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 \cellspacetoplimit=\dimen145
@@ -267,49 +280,50 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
+\inpenc@prehook=\toks26
+\inpenc@posthook=\toks27
 )
 (/usr/share/texlive/texmf-dist/tex/latex/vntex/vncaps.tex
 File: vncaps.tex 2006/06/07 v1.1 Captions in Vietnamese
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count198
+\l__color_backend_stack_int=\count199
 \l__pdf_internal_box=\box52
 )
-No file exam1_solution.aux.
+(./exam1_solution.aux)
 \openout1 = `exam1_solution.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count199
+\scratchcounter=\count266
 \scratchdimen=\dimen149
 \scratchbox=\box53
-\nofMPsegments=\count266
-\nofMParguments=\count267
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count268
+\nofMPsegments=\count267
+\nofMParguments=\count268
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count269
 \MPscratchDim=\dimen150
-\MPnumerator=\count269
-\makeMPintoPDFobject=\count270
-\everyMPtoPDFconversion=\toks23
+\MPnumerator=\count270
+\makeMPintoPDFobject=\count271
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
@@ -354,13 +368,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 14.
+(Font)              <12> on input line 17.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 14.
+(Font)              <8> on input line 17.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
+(Font)              <6> on input line 17.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 14--18
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 17--21
 [][] 
  []
 
@@ -368,19 +382,19 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 14--18
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./exam1_solution.aux) ) 
 Here is how much of TeX's memory you used:
- 3062 strings out of 479662
- 48898 string characters out of 5883895
- 327842 words of memory out of 5000000
- 21126 multiletter control sequences out of 15000+600000
+ 3181 strings out of 479662
+ 50526 string characters out of 5883895
+ 329140 words of memory out of 5000000
+ 21239 multiletter control sequences out of 15000+600000
  475603 words of font info for 41 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
- 60i,9n,67p,212b,245s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,9n,67p,212b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
 </
 usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/vntex/vnr/vnbxti10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/vntex/vnr/vnr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/vnt
 ex/vnr/vnti12.pfb>
-Output written on exam1_solution.pdf (1 page, 32075 bytes).
+Output written on exam1_solution.pdf (1 page, 32312 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream

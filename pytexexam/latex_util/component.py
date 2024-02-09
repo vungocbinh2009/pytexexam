@@ -1,4 +1,4 @@
-import inspect
+from pytexexam.jinja2env import jinja_env
 
 
 def two_column_header(left: str, right: str) -> str:
@@ -9,8 +9,7 @@ def two_column_header(left: str, right: str) -> str:
     :param right: right text
     :return: Latex code
     """
-    return inspect.cleandoc(rf"""
-    \begin{{tabular}}{{ *{{2}}{{ p{{ \dimexpr0.5\linewidth-2\tabcolsep\relax }} }} }}
-    {left} & {right}
-    \end{{tabular}}
-    """)
+    return jinja_env.get_template("latex_util/two_column_header.tex").render(
+        left=left,
+        right=right
+    )

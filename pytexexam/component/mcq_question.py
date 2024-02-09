@@ -1,11 +1,11 @@
 import random
-import string
 
 from pytexexam.component.component import Component, ShuffleableQuestion
 from pytexexam.jinja2env import jinja_env
+from pytexexam.latex_util.internal import get_answer_key
 
 
-class McqAnswer:
+class MultipleChoiceAnswer:
     """
     This class is used to store 1 answer in a question.
     """
@@ -21,42 +21,34 @@ class McqAnswer:
         self.is_true_answer: bool = is_true_answer
 
 
-class McqQuestion(Component, ShuffleableQuestion):
+class MultipleChoiceQuestion(Component, ShuffleableQuestion):
     """
     This class represents one question on the test.
     """
-    def __init__(self, question: str, answers: list[str], true_answer: str, solution: str, answer_column: int):
+    def __init__(self, question: str, answers: list[str], true_answer: str, solution: str, num_column: int):
         self.question: str = question
         """Content of the question."""
-        self.answers: list[McqAnswer] = self.__get_answer_list(answers, true_answer)
+        self.answers: list[MultipleChoiceAnswer] = self.__get_answer_list(answers, true_answer)
         """Question answers"""
-        self.answer_column = answer_column
+        self.num_column = num_column
         """Number of columns for which the answer will be presented."""
         self.solution = solution
         """Solution of the question"""
 
     @staticmethod
-    def __get_answer_list(answers: list[str], true_answer: str) -> list[McqAnswer]:
+    def __get_answer_list(answers: list[str], true_answer: str) -> list[MultipleChoiceAnswer]:
         """
         Generate a list of answer object from answer and true answer key
         :param answers: question answer list.
         :param true_answer: answer key of true answer.
         :return: a list of answer object.
         """
-        answer_key = McqQuestion.__get_answer_key()
+        answer_key = get_answer_key()
         answer_list_size = min(len(answer_key), len(answers))
-        answer_list: list[McqAnswer] = []
+        answer_list: list[MultipleChoiceAnswer] = []
         for i in range(0, answer_list_size):
-            answer_list.append(McqAnswer(answer_key[i], answers[i], answer_key[i] in [*true_answer]))
+            answer_list.append(MultipleChoiceAnswer(answer_key[i], answers[i], answer_key[i] in [*true_answer]))
         return answer_list
-
-    @staticmethod
-    def __get_answer_key() -> list[str]:
-        """
-        get list of alphabet character. (to use it as answer key)
-        :return: Alphabet character list.
-        """
-        return list(string.ascii_uppercase)
 
     def shuffle_content(self, seed: int = None):
         """Shuffle answer list"""
@@ -64,7 +56,7 @@ class McqQuestion(Component, ShuffleableQuestion):
             random.seed(seed)
 
         num_answer = len(self.answers)
-        answer_key = self.__get_answer_key()[0:num_answer]
+        answer_key = get_answer_key()[0:num_answer]
         random.shuffle(answer_key)
         for i in range(num_answer):
             self.answers[i].answer_key = answer_key[i]
@@ -79,25 +71,26 @@ class McqQuestion(Component, ShuffleableQuestion):
         return true_answer
 
     def generate_exam(self) -> str:
-        column_size = 1 / self.answer_column
-        table_column = rf"*{{{self.answer_column}}}{{S{{m{{\dimexpr{column_size}\linewidth-2\tabcolsep\relax}}}}}}"
-
+        column_size = 1 / self.num_column
         answer_string = ""
         for i, answer in enumerate(self.answers):
-            seperator = "\\\\\n" if ((i + 1) % self.answer_column == 0) else "&"
+            seperator = "\\\\\n" if ((i + 1) % self.num_column == 0) else "&"
             answer_string += fr"\textbf{{{answer.answer_key}}}. {answer.answer}. {seperator} "
 
-        return jinja_env.get_template("mcq.tex").render(
+        return jinja_env.get_template("exam/mcq.tex").render(
             question=self.question,
-            table_column=table_column,
+            num_column=self.num_column,
+            column_size=column_size,
             answer_string=answer_string
         )
 
     def generate_answer(self) -> str:
-        return self.get_true_answer_key()
+        return jinja_env.get_template("answer/mcq.tex").render(
+            true_answer=self.get_true_answer_key()
+        )
 
     def generate_solution(self) -> str:
-        return jinja_env.get_template("mcq_solution.tex").render(
+        return jinja_env.get_template("solution/mcq.tex").render(
             question=self.generate_exam(),
             solution=self.solution
         )

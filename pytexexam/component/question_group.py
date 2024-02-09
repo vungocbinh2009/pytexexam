@@ -40,19 +40,19 @@ class QuestionGroup(Component):
         exam_code = ""
         for comp in self.question_list:
             exam_code += comp.generate_exam()
-            exam_code += "\n"
+            exam_code += "\n\n"
         return exam_code
 
     def generate_answer(self) -> str:
         answer_code = ""
         for comp in self.question_list:
             answer_code += comp.generate_answer()
-            answer_code += "\n"
+            answer_code += "\n\n"
         return answer_code
 
     def generate_solution(self) -> str:
         solution_code = ""
         for comp in self.question_list:
             solution_code += comp.generate_solution()
-            solution_code += "\n"
+            solution_code += "\n\n"
         return solution_code

@@ -1,15 +1,11 @@
-import inspect
+from pytexexam.jinja2env import jinja_env
 
 
 def ams_math_package() -> str:
     """
     Returns the code needed to add in preamble to type math formula in latex
     """
-    return inspect.cleandoc(r"""
-    \usepackage{amsmath}
-    \usepackage{amsfonts}
-    \usepackage{amssymb}
-    """)
+    return jinja_env.get_template("latex_util/ams_math_package.tex").render()
 
 
 def bold_title(text: str) -> str:
@@ -18,11 +14,9 @@ def bold_title(text: str) -> str:
 
     :return: latex code
     """
-    return inspect.cleandoc(rf"""
-    \begin{{center}}
-    \textbf {{ {{\Large {text} }} }}
-    \end{{center}}
-    """)
+    return jinja_env.get_template("latex_util/bold_title.tex").render(
+        text=text
+    )
 
 
 def geometry_package(top: float, bottom: float, left: float, right: float) -> str:
@@ -34,9 +28,9 @@ def geometry_package(top: float, bottom: float, left: float, right: float) -> st
     :param left: left margin
     :param right: right margin
     """
-    return inspect.cleandoc(rf"""
-        \usepackage[left = {left}cm, right = {right}cm, top = {top}cm, bottom = {bottom}cm]{{geometry}}
-    """)
+    return jinja_env.get_template("latex_util/geometry_package.tex").render(
+        top=top, bottom=bottom, left=left, right=right
+    )
 
 
 def add_multiple_package(package_list: list[str]) -> str:
@@ -45,8 +39,12 @@ def add_multiple_package(package_list: list[str]) -> str:
 
     :param package_list: List of package to add in preamble
     """
-    command_list = []
-    for package in package_list:
-        command_list.append(rf"""\usepackage{{{package}}}""")
+    return jinja_env.get_template("latex_util/add_multiple_package.tex").render(
+        package_list=package_list
+    )
 
-    return "\n".join(command_list)
+
+def add_package_with_options(package: str, options: str) -> str:
+    return jinja_env.get_template("latex_util/add_package_with_options.tex").render(
+        options=options, package=package
+    )
