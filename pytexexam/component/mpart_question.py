@@ -29,7 +29,7 @@ class MultipartQuestion(Component, ShuffleableQuestion):
         prompt_numbering = get_alpha_numbering_key()
         for i, prompt in enumerate(self.prompts):
             seperator = "\\\\\n" if ((i + 1) % self.num_column == 0) else "&"
-            question_prompts_str += fr"\textbf{{{prompt_numbering[i]}}}. {prompt.prompt}. {seperator} "
+            question_prompts_str += fr"{prompt_numbering[i]}. {prompt.prompt}. {seperator} "
 
         return jinja_env.get_template("exam/mpart.tex").render(
             question_stem=self.question_stem,
@@ -43,7 +43,7 @@ class MultipartQuestion(Component, ShuffleableQuestion):
         prompt_numbering = get_alpha_numbering_key()
         question_answer_str = ""
         for i, ans in enumerate(answer_list):
-            question_answer_str += f"{prompt_numbering[i]} {ans}\n\n"
+            question_answer_str += f"{prompt_numbering[i]}. {ans}\n\n"
 
         return jinja_env.get_template("answer/mpart.tex").render(
             answer=question_answer_str
@@ -54,8 +54,9 @@ class MultipartQuestion(Component, ShuffleableQuestion):
         prompt_numbering = get_alpha_numbering_key()
         question_solution_str = ""
         for i, sol in enumerate(solution_list):
-            question_solution_str += f"{prompt_numbering[i]} {sol}\n\n"
+            question_solution_str += f"{prompt_numbering[i]}. {sol}\n\n"
 
         return jinja_env.get_template("solution/mpart.tex").render(
+            question=self.generate_exam(),
             solution=question_solution_str
         )

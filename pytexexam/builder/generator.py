@@ -23,23 +23,33 @@ class ExamGenerator:
     def __init__(self):
         self.__preamble = []
         self.__components = []
-        self.__question_word = "Question"
-        self.__answer_word = "Answer"
-        self.__solution_word = "Solution"
+        self.__word_translation = dict(
+            question="Question",
+            answer="Answer",
+            solution="Solution"
+        )
 
     def generate_exam(self, file_dir: str, export_type: ExamFileType, generate_answer=True, generate_solution=True):
         if export_type == ExamFileType.TEX:
-            self.export_tex_file(ExamPaperType.EXAM_PAPER, file_dir)
+            self.__export_tex_file(ExamPaperType.EXAM_PAPER, file_dir)
             if generate_answer:
-                self.export_tex_file(ExamPaperType.ANSWER_PAPER, file_dir)
+                self.__export_tex_file(ExamPaperType.ANSWER_PAPER, file_dir)
             if generate_solution:
-                self.export_tex_file(ExamPaperType.SOLUTION_PAPER, file_dir)
+                self.__export_tex_file(ExamPaperType.SOLUTION_PAPER, file_dir)
         else:
-            self.export_pdf_file(ExamPaperType.EXAM_PAPER, file_dir)
+            self.__export_pdf_file(ExamPaperType.EXAM_PAPER, file_dir)
             if generate_answer:
-                self.export_pdf_file(ExamPaperType.ANSWER_PAPER, file_dir)
+                self.__export_pdf_file(ExamPaperType.ANSWER_PAPER, file_dir)
             if generate_solution:
-                self.export_pdf_file(ExamPaperType.SOLUTION_PAPER, file_dir)
+                self.__export_pdf_file(ExamPaperType.SOLUTION_PAPER, file_dir)
+
+    def update_word_translation(self, question=None, answer=None, solution=None):
+        if question is not None:
+            self.__word_translation["question"] = question
+        if answer is not None:
+            self.__word_translation["answer"] = answer
+        if solution is not None:
+            self.__word_translation["solution"] = solution
 
     def add_component(self, component: Component):
         self.__components.append(component)
@@ -60,17 +70,17 @@ class ExamGenerator:
                 component_code += (comp.generate_solution() + "\n\n")
 
         return jinja_env.get_template("generator/exam.tex").render(
-            question_theorem=self.__question_word,
-            answer_theorem=self.__answer_word,
-            solution_theorem=self.__solution_word,
-            user_preamble=self.generate_preamble(),
+            question_theorem=self.__word_translation["question"],
+            answer_theorem=self.__word_translation["answer"],
+            solution_theorem=self.__word_translation["solution"],
+            user_preamble=self.__generate_preamble(),
             component_code=component_code
         )
 
-    def generate_preamble(self):
+    def __generate_preamble(self):
         return "\n".join(self.__preamble)
 
-    def export_tex_file(self, paper_type: ExamPaperType, file_dir: str):
+    def __export_tex_file(self, paper_type: ExamPaperType, file_dir: str):
         """Export to .tex file"""
         if paper_type == ExamPaperType.EXAM_PAPER:
             file = open(f"{file_dir}_exam.tex", "w")
@@ -81,9 +91,9 @@ class ExamGenerator:
         file.write(self.get_latex_string(paper_type))
         file.close()
 
-    def export_pdf_file(self, paper_type: ExamPaperType, file_dir: str):
+    def __export_pdf_file(self, paper_type: ExamPaperType, file_dir: str):
         """Export to pdf file"""
-        self.export_tex_file(paper_type, file_dir)
+        self.__export_tex_file(paper_type, file_dir)
         if paper_type == ExamPaperType.EXAM_PAPER:
             os.system(f"pdflatex {file_dir}_exam.tex")
         elif paper_type == ExamPaperType.ANSWER_PAPER:

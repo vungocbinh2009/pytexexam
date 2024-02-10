@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  9 FEB 2024 19:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  10 FEB 2024 21:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -368,13 +368,23 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <12> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 17.
+(Font)              <6> on input line 14.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 17--21
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 14--17
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 23--27
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 41--46
 [][] 
  []
 
@@ -382,11 +392,11 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 17--21
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./exam1_solution.aux) ) 
 Here is how much of TeX's memory you used:
- 3181 strings out of 479662
- 50526 string characters out of 5883895
- 329140 words of memory out of 5000000
- 21239 multiletter control sequences out of 15000+600000
- 475603 words of font info for 41 fonts, out of 8000000 for 9000
+ 3184 strings out of 479662
+ 50564 string characters out of 5883895
+ 332140 words of memory out of 5000000
+ 21241 multiletter control sequences out of 15000+600000
+ 477559 words of font info for 43 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
  60i,9n,67p,212b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
 </
@@ -394,7 +404,7 @@ usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/vntex/vnr/vnbxti10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/vntex/vnr/vnr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/vnt
 ex/vnr/vnti12.pfb>
-Output written on exam1_solution.pdf (1 page, 32312 bytes).
+Output written on exam1_solution.pdf (1 page, 28192 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream
