@@ -3,9 +3,15 @@ from pytexexam.component.component import Component
 
 
 class OpenQuestion(Component):
+    """
+    This class present an open question.
+    """
     def __init__(self, question: str, answer: str = "", solution: str = ""):
+        # Question
         self.question = question
+        # Answer
         self.answer = answer
+        # Solution
         self.solution = solution
 
     def generate_exam(self) -> str:

@@ -2,7 +2,7 @@ from pytexexam.component.component import Component
 
 
 class Text(Component):
-
+    """Class present a chuck of latex code"""
     def __init__(self, text: str):
         self.text = text
 

@@ -55,7 +55,7 @@ class MultipleChoiceQuestion(Component, ShuffleableQuestion):
         return answer_list
 
     def shuffle_content(self, seed: int = None):
-        """Shuffle answer list"""
+        """Shuffle answer list of the question"""
         if seed is not None:
             random.seed(seed)
 
@@ -67,7 +67,7 @@ class MultipleChoiceQuestion(Component, ShuffleableQuestion):
         self.answers = sorted(self.answers, key=lambda x: x.answer_key)
 
     def get_true_answer_key(self) -> str:
-        """Get answer key of true answer"""
+        """Get all answer key of true answer"""
         true_answer = ""
         for answer in self.answers:
             if answer.is_true_answer:

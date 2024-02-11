@@ -45,6 +45,12 @@ def add_multiple_package(package_list: list[str]) -> str:
 
 
 def add_package_with_options(package: str, options: str) -> str:
+    """
+    Generate latex code to add package with option (in square bracket)
+    :param package:
+    :param options:
+    :return:
+    """
     return jinja_env.get_template("latex_util/add_package_with_options.tex").render(
         options=options, package=package
     )

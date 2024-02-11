@@ -12,12 +12,24 @@ class QuestionPart:
 
 
 class MultipartQuestion(Component, ShuffleableQuestion):
+    """
+    This class presents question with one question stem and multiple prompt (sub-question),
+    which can be shuffled
+    """
     def __init__(self, question_stem: str, prompts: list[QuestionPart], num_column: int = 1):
+        # Question stem
         self.question_stem = question_stem
+        # List of prompts
         self.prompts = prompts
+        # Number of column when present prompt list
         self.num_column = num_column
 
     def shuffle_content(self, seed: int = None):
+        """
+        Shuffle prompt list of the question
+        :param seed: seed value
+        :return:
+        """
         if seed is not None:
             random.seed(seed)
 
