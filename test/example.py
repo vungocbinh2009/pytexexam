@@ -1,5 +1,7 @@
-from pytexexam.component import Text, MultipartQuestion, OpenQuestion, QuestionGroup, MultipleChoiceQuestion, QuestionPart
-from pytexexam import ExamGenerator, ExamFileType, two_column_header
+from pytexexam.component import Text, MultipartQuestion, OpenQuestion, ComponentGroup, MultipleChoiceQuestion, QuestionPart
+from pytexexam.latex_util import two_column_header
+from pytexexam import ExamGenerator, ExamFileType
+
 
 # Create an exam generator object
 exam = ExamGenerator()
@@ -46,7 +48,7 @@ text = Text(r"\section{{An exam section}}")
 # to create your own question type.
 
 # Create a question group to add all component together, add to exam generator
-q_group = QuestionGroup([header, q1, text, q2, q3])
+q_group = ComponentGroup([header, q1, text, q2, q3])
 exam.add_component(q_group)
 
 # Add preamble.

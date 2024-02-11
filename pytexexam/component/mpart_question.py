@@ -5,14 +5,14 @@ import random
 
 
 class QuestionPart:
-    def __init__(self, prompt: str, answer: str, solution: str):
+    def __init__(self, prompt: str, answer: str = "", solution: str = ""):
         self.prompt = prompt
         self.answer = answer
         self.solution = solution
 
 
 class MultipartQuestion(Component, ShuffleableQuestion):
-    def __init__(self, question_stem: str, prompts: list[QuestionPart], num_column: int):
+    def __init__(self, question_stem: str, prompts: list[QuestionPart], num_column: int = 1):
         self.question_stem = question_stem
         self.prompts = prompts
         self.num_column = num_column

@@ -19,7 +19,7 @@ def bold_title(text: str) -> str:
     )
 
 
-def geometry_package(top: float, bottom: float, left: float, right: float) -> str:
+def geometry_package(top: float = 2, bottom: float = 2, left: float = 2, right: float = 2) -> str:
     """
     Generate latex code to add geometry package
 

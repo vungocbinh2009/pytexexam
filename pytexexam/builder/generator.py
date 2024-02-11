@@ -29,7 +29,7 @@ class ExamGenerator:
             solution="Solution"
         )
 
-    def generate_exam(self, file_dir: str, export_type: ExamFileType, generate_answer=True, generate_solution=True):
+    def generate_exam(self, file_dir: str, export_type = ExamFileType.PDF, generate_answer=True, generate_solution=True):
         if export_type == ExamFileType.TEX:
             self.__export_tex_file(ExamPaperType.EXAM_PAPER, file_dir)
             if generate_answer:
@@ -53,6 +53,9 @@ class ExamGenerator:
 
     def add_component(self, component: Component):
         self.__components.append(component)
+
+    def add_multiple_component(self, component_list: list[Component]):
+        self.__components.extend(component_list)
 
     def add_preamble_array(self, preamble_array: list[str]):
         self.__preamble.extend(preamble_array)

@@ -3,7 +3,7 @@ from pytexexam.component.component import Component
 
 
 class OpenQuestion(Component):
-    def __init__(self, question: str, answer: str, solution: str):
+    def __init__(self, question: str, answer: str = "", solution: str = ""):
         self.question = question
         self.answer = answer
         self.solution = solution

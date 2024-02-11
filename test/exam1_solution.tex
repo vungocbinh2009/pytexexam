@@ -11,7 +11,7 @@
 \setlength\cellspacebottomlimit{5pt}
 \usepackage[utf8]{vietnam}
 \begin{document}
-    \begin{tabular}{*{2}{p{\dimexpr0.5\linewidth-2\tabcolsep\relax }}}
+    \begin{tabular}{*{2}{>{\centering\let\newline\\\arraybackslash\hspace{0pt} }m{\dimexpr0.5\linewidth-2\tabcolsep\relax}}}
         Left column & Right column
     \end{tabular}
 
@@ -21,7 +21,7 @@
         This is a multiple choice question
 
         \begin{tabular}{ *{4}{S{m{\dimexpr0.25\linewidth-2\tabcolsep\relax}}} }
-            \textbf{A}. Answer 2. & \textbf{B}. Answer 1. & \textbf{C}. Answer 4. & \textbf{D}. Answer 3. \\
+            \textbf{A}. Answer 3. & \textbf{B}. Answer 2. & \textbf{C}. Answer 4. & \textbf{D}. Answer 1. \\
      
         \end{tabular}
     \end{question}
@@ -39,20 +39,20 @@
         Answer all the question below
 
         \begin{tabular}{ *{2}{S{m{\dimexpr0.5\linewidth-2\tabcolsep\relax}}} }
-            a. Question part 1. & b. Question part 2. \\
-     c. Question part 4. & d. Question part 3. \\
+            a. Question part 3. & b. Question part 4. \\
+     c. Question part 1. & d. Question part 2. \\
      
         \end{tabular}
     \end{question}
 
     \begin{solution}
-        a. Solution 1
+        a. Solution 3
 
-    b. Solution 2
+    b. Solution 4
 
-    c. Solution 4
+    c. Solution 1
 
-    d. Solution 3
+    d. Solution 2
 
 
     \end{solution}

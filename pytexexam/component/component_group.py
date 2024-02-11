@@ -5,7 +5,7 @@ from typing_extensions import Self
 from pytexexam.component.component import Component, ShuffleableQuestion
 
 
-class QuestionGroup(Component):
+class ComponentGroup(Component):
     """
     This class represents an exam.
     """

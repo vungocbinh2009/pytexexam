@@ -9,6 +9,7 @@ class MultipleChoiceAnswer:
     """
     This class is used to store 1 answer in a question.
     """
+
     def __init__(self, answer_key: str, answer: str, is_true_answer=False):
         """
         This method initializes an McqAnswer object.
@@ -25,7 +26,9 @@ class MultipleChoiceQuestion(Component, ShuffleableQuestion):
     """
     This class represents one question on the test.
     """
-    def __init__(self, question: str, answers: list[str], true_answer: str, solution: str, num_column: int):
+
+    def __init__(self, question: str, answers: list[str], true_answer: str,
+                 solution: str = "", num_column: int = 1, auto_end_mark=True):
         self.question: str = question
         """Content of the question."""
         self.answers: list[MultipleChoiceAnswer] = self.__get_answer_list(answers, true_answer)
@@ -34,6 +37,7 @@ class MultipleChoiceQuestion(Component, ShuffleableQuestion):
         """Number of columns for which the answer will be presented."""
         self.solution = solution
         """Solution of the question"""
+        self.auto_end_mark = auto_end_mark
 
     @staticmethod
     def __get_answer_list(answers: list[str], true_answer: str) -> list[MultipleChoiceAnswer]:
@@ -75,7 +79,10 @@ class MultipleChoiceQuestion(Component, ShuffleableQuestion):
         answer_string = ""
         for i, answer in enumerate(self.answers):
             seperator = "\\\\\n" if ((i + 1) % self.num_column == 0) else "&"
-            answer_string += fr"\textbf{{{answer.answer_key}}}. {answer.answer}. {seperator} "
+            ending_punctuation = "." if self.auto_end_mark and \
+                (answer.answer[-1] not in [".", "!", "?"]) else ""
+            answer_string += (fr"\textbf{{{answer.answer_key}}}. " +
+                fr"{answer.answer}{ending_punctuation} {seperator} ")
 
         return jinja_env.get_template("exam/mcq.tex").render(
             question=self.question,
