@@ -88,16 +88,16 @@ class MultipleChoiceQuestion(Component, ShuffleableQuestion):
             question=self.question,
             num_column=self.num_column,
             column_size=column_size,
-            answer_string=answer_string
-        )
+            answer_string=answer_string.strip()
+        ).strip()
 
     def generate_answer(self) -> str:
         return jinja_env.get_template("answer/mcq.tex").render(
             true_answer=self.get_true_answer_key()
-        )
+        ).strip()
 
     def generate_solution(self) -> str:
         return jinja_env.get_template("solution/mcq.tex").render(
             question=self.generate_exam(),
             solution=self.solution
-        )
+        ).strip()

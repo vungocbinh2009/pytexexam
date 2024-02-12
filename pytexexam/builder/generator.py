@@ -1,5 +1,6 @@
 import os
 from enum import Enum
+import re
 
 from pytexexam.component.component import Component
 from pytexexam.jinja2env import jinja_env
@@ -115,13 +116,15 @@ class ExamGenerator:
             for comp in self.__components:
                 component_code += (comp.generate_solution() + "\n\n")
 
-        return jinja_env.get_template("generator/exam.tex").render(
+        exam_code = jinja_env.get_template("generator/exam.tex").render(
             question_theorem=self.__word_translation["question"],
             answer_theorem=self.__word_translation["answer"],
             solution_theorem=self.__word_translation["solution"],
             user_preamble=self.__generate_preamble(),
-            component_code=component_code
+            component_code=component_code.strip()
         )
+        # Xóa bớt các dấu xuống dòng không cần thiết.
+        return re.sub("\n{2,}", '\n\n', exam_code)
 
     def __generate_preamble(self) -> str:
         """

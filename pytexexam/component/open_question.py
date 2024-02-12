@@ -17,15 +17,15 @@ class OpenQuestion(Component):
     def generate_exam(self) -> str:
         return jinja_env.get_template("exam/open_question.tex").render(
             question=self.question,
-        )
+        ).strip()
 
     def generate_answer(self) -> str:
         return jinja_env.get_template("answer/open_question.tex").render(
             answer=self.answer,
-        )
+        ).strip()
 
     def generate_solution(self) -> str:
         return jinja_env.get_template("solution/open_question.tex").render(
             question=self.generate_exam(),
             solution=self.solution
-        )
+        ).strip()

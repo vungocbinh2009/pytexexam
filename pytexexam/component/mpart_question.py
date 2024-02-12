@@ -47,8 +47,8 @@ class MultipartQuestion(Component, ShuffleableQuestion):
             question_stem=self.question_stem,
             num_column=self.num_column,
             column_size=column_size,
-            question_prompts_str=question_prompts_str
-        )
+            question_prompts_str=question_prompts_str.strip()
+        ).strip()
 
     def generate_answer(self) -> str:
         answer_list = list(map(lambda x: x.answer, self.prompts))
@@ -58,8 +58,8 @@ class MultipartQuestion(Component, ShuffleableQuestion):
             question_answer_str += f"{prompt_numbering[i]}. {ans}\n\n"
 
         return jinja_env.get_template("answer/mpart.tex").render(
-            answer=question_answer_str
-        )
+            answer=question_answer_str.strip()
+        ).strip()
 
     def generate_solution(self) -> str:
         solution_list = list(map(lambda x: x.solution, self.prompts))
@@ -70,5 +70,5 @@ class MultipartQuestion(Component, ShuffleableQuestion):
 
         return jinja_env.get_template("solution/mpart.tex").render(
             question=self.generate_exam(),
-            solution=question_solution_str
-        )
+            solution=question_solution_str.strip()
+        ).strip()

@@ -42,7 +42,7 @@ q3 = OpenQuestion(
 )
 
 # Create text to split each part of the test.
-text = Text(r"\section{{An exam section}}")
+text = Text(r"\section{An exam section}")
 
 # You can subclass "Component" from pytexexam.component
 # to create your own question type.
