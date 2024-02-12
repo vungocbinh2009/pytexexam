@@ -9,8 +9,7 @@ A simple library for writing and printing exam in Python.
 
 ## About this branch
 - This branch includes the source code of the upcoming pytexexam version (3.0)
-- Objective: Redesign package to generalize exam generation process and include more question types instead of MCQ only in pytexexam 2.x
-The project is not complete yet.
+- Objective: Redesign package to generalize exam generation process and include more question types instead of MCQ only in pytexexam 2.x. If you want to use pytexexam 2.x, go to branch pytexexam 2.x in this repo.
 
 Install from github, using pip (for testing only)
 ```shell
