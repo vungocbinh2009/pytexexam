@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{array}
+\linespread{1.5}
+\usepackage{amsthm}
+\newtheorem{question}{Question}
+\newtheorem{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{5pt}
+\setlength\cellspacebottomlimit{5pt}
+\usepackage[utf8]{vietnam}
+\begin{document}
+    \begin{tabular}{*{2}{>{\centering\let\newline\\\arraybackslash\hspace{0pt} }m{\dimexpr0.5\linewidth-2\tabcolsep\relax}}}
+        Left column & Right column
+    \end{tabular}
+
+    \begin{question}
+        This is a multiple choice question
+
+        \begin{tabular}{ *{4}{S{m{\dimexpr0.25\linewidth-2\tabcolsep\relax}}} }
+            \textbf{A}. Answer 3. & \textbf{B}. Answer 4. & \textbf{C}. Answer 1. & \textbf{D}. Answer 2. \\
+        \end{tabular}
+    \end{question}
+
+    \begin{solution}
+        Multiple choice question solution
+    \end{solution}
+
+    \section{An exam section}
+
+    \begin{question}
+        Answer all the question below
+
+        \begin{tabular}{ *{2}{S{m{\dimexpr0.5\linewidth-2\tabcolsep\relax}}} }
+            a. Question part 4. & b. Question part 3. \\
+     c. Question part 2. & d. Question part 1. \\
+        \end{tabular}
+    \end{question}
+
+    \begin{solution}
+        a. Solution 4
+
+    b. Solution 3
+
+    c. Solution 2
+
+    d. Solution 1
+    \end{solution}
+
+    \begin{question}
+        This is an open question
+    \end{question}
+
+    \begin{solution}
+        This is open question answer
+    \end{solution}
+\end{document}

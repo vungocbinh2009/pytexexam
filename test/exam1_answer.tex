@@ -1,0 +1,37 @@
+\documentclass[12pt,a4paper,notitlepage]{article}
+\usepackage{graphicx}
+\usepackage{array}
+\linespread{1.5}
+\usepackage{amsthm}
+\newtheorem{question}{Question}
+\newtheorem{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{5pt}
+\setlength\cellspacebottomlimit{5pt}
+\usepackage[utf8]{vietnam}
+\begin{document}
+    \begin{tabular}{*{2}{>{\centering\let\newline\\\arraybackslash\hspace{0pt} }m{\dimexpr0.5\linewidth-2\tabcolsep\relax}}}
+        Left column & Right column
+    \end{tabular}
+
+    \begin{answer}
+        CD
+    \end{answer}
+
+    \section{An exam section}
+
+    \begin{answer}
+        a. Answer 4
+
+    b. Answer 3
+
+    c. Answer 2
+
+    d. Answer 1
+    \end{answer}
+
+    \begin{answer}
+        This is open question answer
+    \end{answer}
+\end{document}

@@ -1,0 +1,7 @@
+- [x] Cài đặt tham số mặc định cho 1 số hàm (rà soát lại).
+- [x] Viết documentation (Đã xong) và test (Viết test dựa trên example).
+- [x] Chuyển phần import các hàm latex_util sang latex_util module.
+- [x] Đổi tên "Question Group" thành "Component group".
+- [x] In câu hỏi thông minh: Kiểm tra và tự động thêm dấu chấm vào cuối các đáp án (nếu người dùng chưa thêm) ở câu hỏi nhiều đáp án
+- [x] Viết hàm cho phép thêm nhiều component vào exam.
+- [x] sửa hàm two column header để in tiêu đề ra giữa.
